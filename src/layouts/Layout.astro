@@ -1,11 +1,11 @@
 ---
+import "@fontsource-variable/raleway";
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
 ---
-
 
 <!doctype html>
 <html lang="en">
@@ -28,6 +28,27 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   :root {
+    /* Primary color palette */
+    --background-color: #c4c1c0; /* light gray with a hint of beige for a lighter background */
+    --text-color: #171616; /* very dark gray for primary text */
+    --link-color: #65676f; /* medium gray with a slight blue tint for links */
+    --link-hover-color: #444241; /* dark charcoal gray for link hover states */
+    --border-color: #988f8b; /* muted taupe for borders and subtle accents */
+
+    /* Typography */
+    --heading-color: #171616; /* very dark gray for headings and bold text */
+    --body-text-color: #444241; /* dark gray for body text */
+    --subtle-text-color: #65676f; /* medium gray for less emphasized text, such as captions and secondary information */
+
+    /* Interactive elements */
+    --link-active-color: #171616; /* very dark gray for active link states */
+    --input-border-color: #988f8b; /* muted taupe for form input borders */
+    --input-focus-color: #444241; /* dark charcoal gray for form input focus outline */
+
+    /* Utility colors for backgrounds, dividers, etc. */
+    --divider-color: #444241; /* dark gray for lines and dividers */
+    --light-background: #e0dddb; /* a lighter shade of the base gray for card backgrounds or alternate sections */
+
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
     --accent-dark: 49, 10, 101;
@@ -37,11 +58,10 @@ const { title } = Astro.props;
       rgb(var(--accent-light)) 30%,
       white 60%
     );
-    --background-color: #111;
   }
   html {
     font-family:
-      "Raleway",
+      "Raleway Variable",
       -apple-system,
       "Helvetica Neue",
       Arial,
@@ -56,5 +76,26 @@ const { title } = Astro.props;
   }
   body {
     background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.2;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    font-weight: bolder;
+    text-decoration: underline;
+    text-decoration-color: var(--link-color);
+  }
+
+  a:hover {
+    color: var(--link-hover-color);
   }
 </style>

@@ -1,112 +1,91 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Content as Description } from "../content/description.md";
+import { Content as Bio } from "../content/bio.md";
 ---
 
 <Layout title="Anna Shmitko">
   <main class="container">
-    <h1 class="title">@annashmitko</h1>
+    <header class="header">
+      <a
+        class="title"
+        href="https://www.instagram.com/annashmitko/"
+        target="_blank"
+        rel="noopener noreferrer"><h1>@annashmitko</h1></a
+      >
+      <div class="bio"><Bio /></div>
+    </header>
+    <div class="description">
+      <Description />
+    </div>
     <div class="desc">
-      <ul class="desc__roles">
-        <li>documentary filmmaker</li>
-        <li>reportage photographer</li>
-        <li>art/style photographer</li>
-      </ul>
       <div class="desc__heading">contact:</div>
       <div class="desc__contact">
-        <a class="link" href="mailto:annashmitko@gmail.com"
-          >annashmitko@gmail.com</a
+        <a
+          class="link"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="mailto:annashmitko@gmail.com">annashmitko@gmail.com</a
         ><br />
-        <a class="link" href="https://www.instagram.com/annashmitko/"
-          >instagram</a
+        <a
+          class="link"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/annashmitko/">instagram</a
         >
       </div>
     </div>
-
-    <div class="pic"></div>
   </main>
 </Layout>
 
-<style>
+<style is:inline>
   .container {
-    position: relative;
-    margin: 0 auto;
-    height: 100vh;
     max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding-top: 64px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    /* text-align: center; */
+    margin-bottom: 36px;
+  }
+
+  .bio {
+  }
+
+  .bio ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .description li {
+    margin-bottom: 8px;
+  }
+
+  .description {
+    padding-bottom: 20px;
   }
 
   .title {
     display: block;
     font-weight: 800;
-    font-size: 100px;
-    color: #000;
-    /* color: rgb(255, 0, 0); */
-    letter-spacing: 1px;
-    transform: rotate(-90deg);
-    position: absolute;
-    transform-origin: right top;
-    top: 0;
-    right: 100%;
+    font-size: 24px;
+    color: var(--heading-color);
+    text-decoration: none;
+    /* letter-spacing: 1px; */
+  }
+  .title h1 {
+    margin: 0;
   }
 
   .desc {
-    color: #858585;
-    padding-bottom: 400px;
-    padding-left: 100px;
-  }
-
-  .desc__roles {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 36px;
-  }
-
-  .desc__contact {
-  }
-
-  .desc__heading {
-    font-weight: bolder;
-    font-size: 14px;
-  }
-
-  .link {
-    text-decoration: none;
-    color: #858585;
-  }
-
-  .pic {
-    height: 400px;
-    position: absolute;
-    bottom: 0;
-    z-index: -1;
-    background-image: url("/portrait.png");
-    background-size: contain;
-    width: 100%;
-    animation: pic-slide 300s ease-in-out infinite;
-  }
-
-  .subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 64px;
   }
 
   .links {
     padding-top: 15px;
-  }
-
-  @keyframes pic-slide {
-    0% {
-      background-position-x: 0;
-    }
-    100% {
-      background-position-x: 100000%;
-    }
   }
 </style>
