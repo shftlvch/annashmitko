@@ -1,4 +1,5 @@
-Anna is a prominent media professional with a focus on social and LGBTQ+ narratives in documentary filmmaking. With just a director career spanning over four years, she has been pivotal in developing the YouTube channel **"Straight talk with gay people by Karen Shainyan"**, which has become a crucial platform for discussing LGBTQ+ issues within Russia. The channel has successfully reached approximately more than 200,000 subscribers featuring interviews with notable figures and exploring various facets of queer life in Russia.
+Hi,
+I'm Anna, a documentary director with a passion for social issues and LGBTQ+ stories. Over the past four years, I've had the amazing opportunity to develop the YouTube channel "Straight talk with gay people by Karen Shainyan." It's been an incredible journey to create a space where we can talk openly about LGBTQ+ life in Russia. I'm proud to say we've connected with over 200,000 subscribers and have had some really eye-opening conversations with some inspiring people along the way.
 
 ## Projects
 
@@ -9,7 +10,7 @@ Anna broadened her impact with “Queerography” [youtube](https://www.youtube.
 ### Skazhi Gordeevoi (Tell Gordeeva)
 
 Collaborating with Katerina Gordeeva [youtube](https://www.youtube.com/c/skazhigordeevoy/featured), Anna co-created the project “Skazhi Gordeevoi” for Russian independent media outlet Meduza.io. Serving as the director and DOP, Anna has been producing the very first 20 episodes that delve into a variety of compelling stories and voices forming the concept that has been thriving till today.
-  
+
 ## Highlights
 
 - Yekaterinburg, Queerography series. The film showcases the vibrant lives of Yekaterinburg's residents, from trans-activists to war veterans turned drag queens, as they navigate family, acceptance, and the right to love in a city renowned for its economic significance and cultural milestones like hosting Russia's first gay pride parades. **49m**, [youtube](https://www.youtube.com/watch?v=a6dean6qJHM) (English subtitles)
