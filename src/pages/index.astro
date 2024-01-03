@@ -5,30 +5,38 @@ import { Content as Bio } from "../content/bio.md";
 ---
 
 <Layout title="Anna Shmitko">
-  <main class="container">
-    <header class="header">
+  <main class="container mx-auto px-3 mb-20 max-w-[640px]">
+    <header class="flex flex-col md:flex-row align-center justify-between gap-1 mb-10 mt-12">
       <a
-        class="title"
+        class="text-4xl font-bold text-black-600 mb-2"
         href="https://www.instagram.com/annashmitko/"
         target="_blank"
-        rel="noopener noreferrer"><h1>@annashmitko</h1></a
-      >
-      <div class="bio"><Bio /></div>
+        rel="noopener noreferrer"
+        ><div>@annashmitko</div>
+      </a>
+      <div class="prose prose-li:list-none prose-li:p-0 prose-li:m-0 leading-5">
+        <Bio />
+      </div>
     </header>
-    <div class="description">
+    <div
+      class="prose
+  prose-h1:font-bold prose-h1:text-xl
+  prose-img:rounded-xl prose-li:list-decimal marker:text-gray-600
+  mb-8"
+    >
       <Description />
     </div>
-    <div class="desc">
-      <div class="desc__heading">contact:</div>
-      <div class="desc__contact">
+    <div class="">
+      <div class="text-black-600">contacts:</div>
+      <div class="">
         <a
-          class="link"
+          class="text-pink-700 font-semibold"
           target="_blank"
           rel="noopener noreferrer"
           href="mailto:annashmitko@gmail.com">annashmitko@gmail.com</a
         ><br />
         <a
-          class="link"
+          class="text-pink-700 font-semibold"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.instagram.com/annashmitko/">instagram</a
@@ -37,75 +45,3 @@ import { Content as Bio } from "../content/bio.md";
     </div>
   </main>
 </Layout>
-
-<style is:inline>
-  .container {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .header {
-    padding-top: 64px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 36px;
-    gap: 8px;
-  }
-
-  .bio {
-  }
-
-  .bio ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .description li {
-    margin-bottom: 8px;
-  }
-
-  .description {
-    padding-bottom: 20px;
-  }
-
-  .title {
-    display: block;
-    font-weight: 800;
-    font-size: 24px;
-    color: var(--heading-color);
-    text-decoration: none;
-    /* letter-spacing: 1px; */
-  }
-  .title h1 {
-    margin: 0;
-  }
-
-  .desc {
-    padding-bottom: 64px;
-  }
-
-  .links {
-    padding-top: 15px;
-  }
-
-  /* mobile */
-  @media (max-width: 640px) {
-    .title {
-      font-size: 20px;
-    }
-    .title h1 {
-      margin: 0;
-    }
-
-    .bio {
-      margin-left: 34px;
-    }
-
-    .header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-</style>

@@ -21,4 +21,4 @@ Collaborating with Katerina Gordeeva [youtube](https://www.youtube.com/c/skazhig
 - Sci-fi series on queerness: [explore the series](https://www.youtube.com/playlist?list=PLgNBPM5oMiVpDK2tNhkbVlA0xqf_zneB_)
 - Other “Skazhi Gordeevoi” episodes: [Meduza project](https://www.youtube.com/c/skazhigordeevoy/videos)
 
-Anna's work not only captures the essence of contemporary queer narratives but also boldly ventures into spaces of significant social and political sensitivity. Her portfolio is a testament to her dedication to authenticity, storytelling, and the pursuit of visibility for marginalized communities.
+My work is all about giving a voice to queer stories and tackling some pretty tough social and political topics head-on. I'm all in when it comes to being real, sharing true stories, and shining a light on communities that often go unseen.
