@@ -13,6 +13,7 @@ Collaborating with Katerina Gordeeva [youtube](https://www.youtube.com/c/skazhig
 
 ## Highlights
 
+- "Родитель 1, Родитель 2, Родитель 3" (Parent 1, Parent 2, Parent 3) is a groundbreaking documentary series that explores the lives of children in queer families, featuring four diverse family stories and illustrating their challenges and joy in finding happiness amidst adversities. **1 season, 4 episodes**, [OstWest](https://ostwest.tv/nashi-programmy/roditel-1-roditel-2-roditel-3/)
 - Yekaterinburg, Queerography series. The film showcases the vibrant lives of Yekaterinburg's residents, from trans-activists to war veterans turned drag queens, as they navigate family, acceptance, and the right to love in a city renowned for its economic significance and cultural milestones like hosting Russia's first gay pride parades. **49m**, [youtube](https://www.youtube.com/watch?v=a6dean6qJHM) (English subtitles)
 - Elena Kostyuchenko, special correspondent for Novaya Gazeta about her work in the war in Ukraine, the environmental disaster in Norilsk, and also about how to live and love in Russia if you are a lesbian. **1h48m**, [youtube](https://www.youtube.com/watch?v=AAV7yPTHjyA) (English subtitles)
 - The investigative video delves into the harrowing plight of LGBTQ+ people in Chechnya, unearthing the stark realities behind international sanctions and societal perceptions within the Russian context. **1h09m**, [youtube](https://www.youtube.com/watch?v=tCYTKvzrUug) (English subtitles)
