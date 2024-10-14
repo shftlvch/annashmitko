@@ -23,3 +23,5 @@ Collaborating with Katerina Gordeeva [youtube](https://www.youtube.com/c/skazhig
 - Other “Skazhi Gordeevoi” episodes: [Meduza project](https://www.youtube.com/c/skazhigordeevoy/videos)
 
 My work is all about giving a voice to queer stories and tackling some pretty tough social and political topics head-on. I'm all in when it comes to being real, sharing true stories, and shining a light on communities that often go unseen.
+
+🌚
