@@ -19,18 +19,19 @@ const {
   class: className = "",
 } = Astro.props;
 
-const baseStyles = "inline-flex items-center justify-center font-medium rounded-full transition-colors";
+const baseStyles =
+  "inline-flex items-center justify-center font-medium rounded-sm transition-colors text-black";
 
 const variantStyles = {
-  primary: "bg-orange-500 text-white hover:bg-orange-600",
-  secondary: "bg-gray-800 text-white hover:bg-gray-900",
-  outline: "border border-gray-800 text-gray-800 hover:bg-gray-100"
+  primary: "bg-primary hover:bg-primary/80",
+  secondary: "bg-gray-800 hover:bg-gray-900",
+  outline: "border border-gray-800 text-gray-800 hover:bg-gray-100",
 };
 
 const sizeStyles = {
   sm: "text-sm px-4 py-1.5",
   md: "text-base px-6 py-2",
-  lg: "text-lg px-8 py-3"
+  lg: "text-lg px-8 py-3",
 };
 
 const classes = [
@@ -38,7 +39,7 @@ const classes = [
   variantStyles[variant],
   sizeStyles[size],
   fullWidth ? "w-full" : "",
-  className
+  className,
 ].join(" ");
 ---
 

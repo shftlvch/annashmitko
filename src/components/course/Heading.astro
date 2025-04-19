@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"h1" | "h2" | "h3"> {
+  level: "h1" | "h2" | "h3";
+}
+
+const { level, class: className, ...props } = Astro.props;
+
+const styles = {
+  h1: " text-9xl font-bold  font-serif",
+  h2: " text-4xl font-bold font-serif",
+  h3: " text-3xl font-bold font-serif",
+};
+
+const Tag = level as keyof typeof styles;
+---
+
+<Tag class:list={[styles[level], className]} {...props}>
+  <slot />
+</Tag>

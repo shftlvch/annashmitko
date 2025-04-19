@@ -3,6 +3,10 @@ import CourseLayout from "../layouts/Course.astro";
 import Hero from "../components/course/Hero.astro";
 import FeaturesRow from "../components/course/FeaturesRow.astro";
 import TwoColumnBlock from "../components/course/TwoColumnBlock.astro";
+import CourseScheduleBlock from "../components/course/CourseScheduleBlock.astro";
+import List from "../components/course/List.astro";
+
+import heroImage from "./images/hero-1.jpg";
 ---
 
 <CourseLayout title="Manual Focus mobile photography course by Anna Shmitko">
@@ -10,7 +14,7 @@ import TwoColumnBlock from "../components/course/TwoColumnBlock.astro";
     <Hero
       title="Ручной фокус"
       subtitle="курс о мобильной фотографии, наблюдении и памяти"
-      imageSrc="/images/hero-1.jpg"
+      image={heroImage}
       imageAlt="Фотограф с мобильным телефоном"
       startDate="Начинаем 16 мая."
     >
@@ -70,4 +74,45 @@ import TwoColumnBlock from "../components/course/TwoColumnBlock.astro";
     </p>
     <p>Домашние задания с проверкой — будут.</p>
   </TwoColumnBlock>
+
+  <div class="flex flex-col gap-24">
+    <CourseScheduleBlock
+      num="1"
+      title="Введение в мобильную фотографию"
+      date="16 мая, 11:00"
+      image={heroImage}
+    >
+      <List
+        items={[
+          "Как работает камера телефона: свет, выдержка, диафрагма",
+          "Портрет: типы, ракурсы",
+          "Практика: автопортрет, знакомство с программами",
+        ]}
+      />
+      <p>
+        Домашнее задание: <br />
+        3 портрета — домашний, рабочий, уличный
+      </p>
+    </CourseScheduleBlock>
+
+    <CourseScheduleBlock
+      num="2"
+      title="Введение в мобильную фотографию"
+      date="16 мая, 11:00"
+      image={heroImage}
+      align="reverse"
+    >
+      <List
+        items={[
+          "Как работает камера телефона: свет, выдержка, диафрагма",
+          "Портрет: типы, ракурсы",
+          "Практика: автопортрет, знакомство с программами",
+        ]}
+      />
+      <p>
+        Домашнее задание: <br />
+        3 портрета — домашний, рабочий, уличный
+      </p>
+    </CourseScheduleBlock>
+  </div>
 </CourseLayout>

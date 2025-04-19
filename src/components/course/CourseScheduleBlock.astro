@@ -1,16 +1,39 @@
 ---
-import TwoColumns from './TwoColumns.astro';
+import TwoColumns from "./TwoColumns.astro";
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  num: string;
+  title: string;
+  date: string;
+  image: ImageMetadata;
+  align?: "default" | "reverse";
+}
+
+const { num, title, date, image, align = "default" } = Astro.props;
 ---
 
-<TwoColumns 
-  title="Как всё пройдёт" 
-  date="Расписание" 
-  imageSrc="/path/to/your/course-image.jpg"
->
-  Мы будем встречаться раз в неделю, по субботам, в первой половине дня по европейскому времени.
-  <br/>
-  Это онлайн-встречи на 2 — 2,5 часа. В начале каждой мы немного поговорим о теории, 
-  а большую часть посвятим практике.
-  <br/>
-  Домашние задания с проверкой — будут.
-</TwoColumns> 
+<TwoColumns align={align}>
+  <div slot="left">
+    <Image src={image} alt="" />
+  </div>
+  <div slot="right" class="pr-12">
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-4 text-xl font-serif italic font-[100]">
+        <div>
+          {num}.
+        </div>
+        <div class="h-px bg-stone-300 flex-grow mx-2"></div>
+        <div>{date}</div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <Heading level="h3">{title}</Heading>
+        <Text>
+          <slot />
+        </Text>
+      </div>
+    </div>
+  </div>
+</TwoColumns>
