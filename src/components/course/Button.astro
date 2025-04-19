@@ -1,0 +1,59 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "outline";
+  size?: "sm" | "md" | "lg";
+  fullWidth?: boolean;
+  class?: string;
+}
+
+const {
+  text,
+  href,
+  type = "button",
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  class: className = "",
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center font-medium rounded-full transition-colors";
+
+const variantStyles = {
+  primary: "bg-orange-500 text-white hover:bg-orange-600",
+  secondary: "bg-gray-800 text-white hover:bg-gray-900",
+  outline: "border border-gray-800 text-gray-800 hover:bg-gray-100"
+};
+
+const sizeStyles = {
+  sm: "text-sm px-4 py-1.5",
+  md: "text-base px-6 py-2",
+  lg: "text-lg px-8 py-3"
+};
+
+const classes = [
+  baseStyles,
+  variantStyles[variant],
+  sizeStyles[size],
+  fullWidth ? "w-full" : "",
+  className
+].join(" ");
+---
+
+{
+  href ? (
+    <a href={href} class={classes}>
+      <slot name="before" />
+      {text}
+      <slot name="after" />
+    </a>
+  ) : (
+    <button type={type} class={classes}>
+      <slot name="before" />
+      {text}
+      <slot name="after" />
+    </button>
+  )
+}

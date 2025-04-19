@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  align?: 'left' | 'center' | 'right';
+  className?: string;
+}
+
+const { 
+  title, 
+  align = 'left',
+  className = ''
+} = Astro.props;
+
+const alignmentClasses = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right'
+};
+---
+
+<h2 class={`text-3xl md:text-4xl font-bold mb-4 font-serif ${alignmentClasses[align]} ${className}`}>
+  {title}
+</h2> 

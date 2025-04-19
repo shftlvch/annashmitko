@@ -1,0 +1,59 @@
+---
+description: Format new code based ot es-lint config
+globs: *.ts,*.astro
+alwaysApply: false
+---
+# Code Style Rules for annashmitko.com
+
+## General
+- Project uses TypeScript with Astro framework
+- Tab indentation: 2 spaces
+- Line endings: LF (Unix-style)
+- Maximum line length: ~80-100 characters
+- UTF-8 encoding
+
+## TypeScript/JavaScript
+- Use ES modules (import/export)
+- Use single quotes for string literals
+- Include semicolons at the end of statements
+- Use camelCase for variables and functions
+- Use PascalCase for component names and interfaces
+- Strongly type interfaces and component props
+
+## Astro Components
+- Script section at the top with --- delimiters
+- Define interfaces with Props prefix for component props
+- Destructure props from Astro.props
+- Component markup follows script section
+
+## HTML/JSX
+- Use double quotes for HTML attributes
+- Close self-closing tags with a forward slash
+- Use className instead of class for dynamic classes
+- Interpolate variables with curly braces: {variable}
+
+## CSS/Styling
+- Primary styling through Tailwind classes
+- Component-specific styles in <style> blocks
+- Use kebab-case for CSS classes
+- Group related Tailwind classes together
+- Mobile-first responsive design
+
+## Naming Conventions
+- Files: PascalCase for components (Card.astro)
+- Directories: lowercase with semantic naming (pages, components, layouts)
+- Component props: camelCase
+- CSS classes: kebab-case
+
+## Project Structure
+- /src/pages: Route pages
+- /src/components: Reusable UI components
+- /src/layouts: Page layout templates
+- /src/content: Markdown content
+
+## Best Practices
+- Use appropriate accessibility attributes
+- Include rel="noopener noreferrer" with target="_blank" links
+- Organize imports with framework imports first, followed by local imports
+- Use semantic HTML elements
+- Add meaningful comments for complex logic

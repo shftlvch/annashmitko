@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  features: string[];
+  iconSrc?: string;
+}
+
+const {
+  title = "",
+  features = [],
+  iconSrc = "/images/diamond-icon.svg"
+} = Astro.props;
+---
+
+<section class="text-white py-8 px-4 md:py-12 md:px-8 max-w-7xl mx-auto">
+  <div class="max-w-2xl mx-auto py-8">
+    <div class="flex items-center gap-4 mb-8">
+      {iconSrc && <img src={iconSrc} alt="" class="w-10 h-10 md:w-12 md:h-12" />}
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight m-0">{title}</h2>
+    </div>
+    
+    <ul class="list-none p-0 m-0">
+      {features.map(feature => (
+        <li class="flex items-baseline gap-3 mb-5 text-xl md:text-2xl">
+          <span class="text-xl md:text-2xl flex-shrink-0">→</span>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section> 

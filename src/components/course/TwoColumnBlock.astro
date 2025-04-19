@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  iconSrc?: string;
+}
+
+const { title = "Как всё пройдёт", iconSrc = "/images/diamond-icon.svg" } =
+  Astro.props;
+---
+
+<section class="text-white max-w-[1200px] mx-auto">
+  <div
+    class="self-stretch pl-14 pt-16 pb-12 inline-flex justify-start items-start gap-20"
+  >
+    <div class="flex justify-center items-center gap-8">
+      {
+        iconSrc && (
+          <div class="w-24 h-24">
+            <img src={iconSrc} alt="" class="w-full h-full" />
+          </div>
+        )
+      }
+      <h2
+        class="justify-start text-stone-200 text-5xl font-bold font-serif leading-[52px]"
+      >
+        {title}
+      </h2>
+    </div>
+    <div
+      class="px-3 pt-2 pb-3 rounded-xl inline-flex flex-col justify-center items-start gap-5 overflow-hidden"
+    >
+      <div
+        class="justify-start text-stone-300 text-2xl font-normal font-sans leading-9"
+      >
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

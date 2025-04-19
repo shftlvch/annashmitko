@@ -1,0 +1,45 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+  imageAlt: string;
+  authorName?: string;
+  authorDescription?: string;
+  startDate?: string;
+}
+
+const {
+  title,
+  subtitle,
+  imageSrc,
+  imageAlt,
+  startDate = "Начинаем 16 мая.",
+} = Astro.props;
+---
+
+<section class="text-white p-4 md:p-8 max-w-7xl mx-auto">
+  <div class="flex flex-col items-center text-center py-8">
+    <h1 class="text-6xl md:text-6xl font-bold mb-2 leading-none font-serif">{title}</h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-2xl font-sans">{subtitle}</p>
+
+    <div class="w-full my-8">
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="w-full max-h-[450px] object-cover rounded-sm"
+      />
+    </div>
+
+    <div class="text-left max-w-2xl mx-auto mb-8">
+      <slot />
+      <p class="font-semibold">{startDate}</p>
+
+      <div class="mt-6">
+        <Button text="Записаться сейчас" variant="primary" size="lg" />
+      </div>
+    </div>
+  </div>
+</section>
