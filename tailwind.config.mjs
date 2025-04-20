@@ -4,6 +4,14 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		container: {
+			center: true,
+			padding: "2rem",
+			screens: {
+				"xl": "1280px",
+				"2xl": "1280px",
+			},
+		},
 		extend: {
 			fontFamily: {
 				sans: ["Raleway Variable", "Raleway", "Public Sans Variable", "Public Sans", ...defaultTheme.fontFamily.sans],
@@ -19,6 +27,7 @@ export default {
 				text: {
 					DEFAULT: "#e4dad7",
 					muted: "#b69791",
+					primary: "#FF5733",
 				},
 				accent: {
 					purple: "#9b80f4",
@@ -73,6 +82,9 @@ export default {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
+			},
+			lineHeight: {
+				loose: "1.4",
 			},
 			keyframes: {
 				"accordion-down": {

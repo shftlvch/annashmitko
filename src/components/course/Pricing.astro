@@ -1,0 +1,32 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  price: string;
+  buttonText: string;
+}
+
+const { price, buttonText } = Astro.props;
+---
+
+<div
+  class="self-stretch pt-24 pb-12 flex flex-col justify-center items-center gap-16"
+>
+  <div class="w-full flex flex-col justify-start items-start gap-12">
+    <div
+      class="text-primary w-full justify-start text-primary-500 text-5xl font-light font-serif leading-[52px]"
+    >
+      {price}
+    </div>
+    <div
+      class="w-full justify-start text-2xl font-normal font-sans leading-normal"
+    >
+      <slot name="content" />
+    </div>
+  </div>
+  <div
+    class="px-12 py-6 bg-primary-500 rounded-2xl flex justify-center items-center"
+  >
+    <Button text={buttonText} size="lg" />
+  </div>
+</div>

@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import diamondIcon from "./diamond.svg";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
+
+const { ...props } = Astro.props;
+---
+
+<Image src={diamondIcon} alt="Diamond icon" {...props} />

@@ -10,10 +10,10 @@ const { items, class: className, ...props } = Astro.props;
 
 <ul
   class:list={[
-    "list-disc pl-5 text-xl font-normal font-sans leading-loose",
+    "list-disc pl-7 text-xl font-normal font-sans ",
     className,
   ]}
   {...props}
 >
-  {items.map((item) => <li class="mb-2 leading-normal">{item}</li>)}
+  {items.map((item) => <li class="mb-2 leading-loose">{item}</li>)}
 </ul>

@@ -3,8 +3,9 @@ import TwoColumns from "./TwoColumns.astro";
 import Heading from "./Heading.astro";
 import Text from "./Text.astro";
 import { Image } from "astro:assets";
+import type { HTMLAttributes } from "astro/types";
 
-interface Props {
+interface Props extends HTMLAttributes<"div"> {
   num: string;
   title: string;
   date: string;
@@ -12,15 +13,23 @@ interface Props {
   align?: "default" | "reverse";
 }
 
-const { num, title, date, image, align = "default" } = Astro.props;
+const {
+  num,
+  title,
+  date,
+  image,
+  align = "default",
+  class: className,
+  ...props
+} = Astro.props;
 ---
 
-<TwoColumns align={align}>
+<TwoColumns align={align} class={className} {...props}>
   <div slot="left">
-    <Image src={image} alt="" />
+    <Image src={image} alt="" class="rounded-sm" />
   </div>
   <div slot="right" class="pr-12">
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 pr-16">
       <div class="flex items-center gap-4 text-xl font-serif italic font-[100]">
         <div>
           {num}.
@@ -30,9 +39,12 @@ const { num, title, date, image, align = "default" } = Astro.props;
       </div>
       <div class="flex flex-col gap-4">
         <Heading level="h3">{title}</Heading>
-        <Text>
-          <slot />
-        </Text>
+        <div class="flex flex-col gap-4">
+          <slot name="content" />
+          <div class="text-lg">
+            <slot name="footer" />
+          </div>
+        </div>
       </div>
     </div>
   </div>

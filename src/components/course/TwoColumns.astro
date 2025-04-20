@@ -1,25 +1,26 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
   align?: "default" | "reverse";
 }
 
-const { align = "default" } = Astro.props;
+const { align = "default", class: className, ...props } = Astro.props;
 ---
 
-<section class=" max-w-[1200px] mx-auto">
-  <div
-    class:list={[
-      "grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16",
-      align === "default" ? "md:order-first" : "md:order-last",
-    ]}
-  >
+<section class="max-w-[1200px] mx-auto" class:list={[className]} {...props}>
+  <div class:list={["grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8"]}>
     <!-- Left column with image -->
-    <div>
+    <div
+      class:list={[align === "default" ? "md:order-first" : "md:order-last"]}
+    >
       <slot name="left" />
     </div>
 
     <!-- Right column with content -->
-    <div>
+    <div
+      class:list={[align === "default" ? "md:order-last" : "md:order-first"]}
+    >
       <slot name="right" />
     </div>
   </div>

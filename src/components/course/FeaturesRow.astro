@@ -1,8 +1,7 @@
 ---
 import Heading from "./Heading.astro";
 import Text from "./Text.astro";
-import { Image } from "astro:assets";
-import diamondIcon from "./icons/diamond-icon.svg";
+import Diamond from "./Diamond/Diamond.astro";
 
 interface Props {
   title: string;
@@ -10,13 +9,13 @@ interface Props {
   icon?: ImageMetadata;
 }
 
-const { title = "", features = [], icon = diamondIcon } = Astro.props;
+const { title = "", features = [] } = Astro.props;
 ---
 
-<section class="py-8 px-4 md:py-12 md:px-8 max-w-7xl mx-auto">
+<section class="py-8 px-4 md:py-12 md:px-8  mx-auto">
   <div class="max-w-2xl mx-auto py-8">
     <div class="flex items-center gap-4 mb-8">
-      <Image src={icon} alt="" class="w-10 h-10 md:w-12 md:h-12" />
+      <Diamond class="w-10 h-10 md:w-12 md:h-12" />
       <Heading level="h2">{title}</Heading>
     </div>
 

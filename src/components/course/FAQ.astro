@@ -1,0 +1,48 @@
+---
+import Heading from './Heading.astro';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  items: FAQItem[];
+}
+
+const { title, items } = Astro.props;
+---
+<div class="py-16">
+  <div class="container mx-auto">
+    <Heading level="h2" class="mb-12">{title}</Heading>
+    <div class="space-y-6">
+      {
+        items.map((item: FAQItem) => (
+          <details class="group border-b border-neutral-800 pb-6">
+            <summary class="flex cursor-pointer items-center justify-between py-2 text-xl font-medium text-white">
+              {item.question}
+              <svg
+                class="h-5 w-5 transform transition-transform duration-300 group-open:rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div class="mt-4 text-neutral-300">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</div> 
