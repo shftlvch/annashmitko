@@ -3,7 +3,7 @@ import "@fontsource-variable/public-sans";
 import "@fontsource-variable/roboto-serif";
 import Footer from "../components/course/Footer.astro";
 import { SEO } from "astro-seo";
-import coverImage from "../content/course/cover.jpg";
+import coverImage from "./_images/cover.png";
 
 interface Props {
   title: string;
@@ -36,7 +36,7 @@ const { title, description, meta } = Astro.props;
       description={description}
       openGraph={{
         basic: {
-          title: title,
+          title: meta.title,
           type: "website",
           image: coverImage.src,
         },
@@ -46,7 +46,7 @@ const { title, description, meta } = Astro.props;
           locale: "ru",
         },
         image: {
-          alt: title,
+          alt: meta.title,
           height: coverImage.height,
           width: coverImage.width,
           url: coverImage.src,
