@@ -1,9 +1,8 @@
 ---
-import TwoColumns from "./TwoColumns.astro";
-import Heading from "./Heading.astro";
-import Text from "./Text.astro";
-import { Image } from "astro:assets";
 import type { HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
+import Heading from "./Heading.astro";
+import TwoColumns from "./TwoColumns.astro";
 
 interface Props extends HTMLAttributes<"div"> {
   num: string;

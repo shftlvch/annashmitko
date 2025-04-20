@@ -5,24 +5,20 @@ interface Props {
   class?: string;
 }
 
-const { 
-  tallyFormSrc = 'https://tally.so/embed/mZQDRB?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1',
-  height = '767',
-  class: className = '',
+const {
+  tallyFormSrc = "https://tally.so/embed/mZQDRB?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+  height = "767",
+  class: className = "",
 } = Astro.props;
 ---
 
 <div class={`tally-form-container ${className}`}>
-  <iframe 
+  <iframe
     data-tally-src={tallyFormSrc}
     loading="lazy"
-    width="100%" 
+    width="100%"
     height={height}
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0"
-    title="Запись на курс мобильной фотографии Ани Шмитько"
-  ></iframe>
+    title="Запись на курс мобильной фотографии Ани Шмитько"></iframe>
 </div>
 
 <script>
@@ -30,18 +26,18 @@ const {
   interface TallyInterface {
     loadEmbeds: () => void;
   }
-  
+
   interface WindowWithTally extends Window {
     Tally?: TallyInterface;
   }
 
   // Check if Tally is already defined
   const windowWithTally = window as WindowWithTally;
-  
-  if (typeof window !== 'undefined' && !windowWithTally.Tally) {
+
+  if (typeof window !== "undefined" && !windowWithTally.Tally) {
     // Create a script element
-    const script = document.createElement('script');
-    script.src = 'https://tally.so/widgets/embed.js';
+    const script = document.createElement("script");
+    script.src = "https://tally.so/widgets/embed.js";
     script.onload = () => {
       // Load all embeds when the script has loaded
       if (windowWithTally.Tally) {
@@ -50,8 +46,9 @@ const {
     };
     // Append the script to the document
     document.head.appendChild(script);
-  } else if (typeof window !== 'undefined' && windowWithTally.Tally) {
+  } else if (typeof window !== "undefined" && windowWithTally.Tally) {
     // If Tally is already loaded, just load the embeds
     windowWithTally.Tally.loadEmbeds();
   }
-</script> 
+</script>
+
