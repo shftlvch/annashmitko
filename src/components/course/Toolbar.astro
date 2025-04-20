@@ -6,16 +6,22 @@ interface Props {
 const { className = "" } = Astro.props;
 ---
 
-<header class={`sticky top-0 z-50 w-full bg-background shadow-lg ${className}`}>
-  <div class="container mx-auto px-20 pt-4 pb-3 flex items-center justify-between rounded-sm">
-    <div class="text-lg font-bold">
+<header
+  class={`sticky top-0 z-50 w-full bg-background shadow-lg ${className} transition-all duration-300`}
+  id="header-nav"
+>
+  <div
+    class="container mx-auto px-4 md:px-20 py-4 flex items-center justify-between rounded-sm transition-all"
+    id="nav-container"
+  >
+    <div class="text-lg font-bold hidden md:block">
       <a href="/course" class="hover:opacity-80 transition-opacity"
         >@annashmitko</a
       >
     </div>
 
-    <nav>
-      <ul class="flex space-x-6">
+    <nav class="w-full md:w-auto">
+      <ul class="flex justify-center md:justify-start space-x-4 md:space-x-6">
         <li>
           <a href="#about" class="hover:text-gray-600 transition-colors"
             >О курсе</a
@@ -38,3 +44,26 @@ const { className = "" } = Astro.props;
     </nav>
   </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("header-nav");
+    const navContainer = document.getElementById("nav-container");
+
+    if (!header || !navContainer) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add("shadow-md");
+        navContainer.classList.remove("py-4");
+        navContainer.classList.add("py-2");
+      } else {
+        header.classList.remove("shadow-md");
+        navContainer.classList.remove("py-2");
+        navContainer.classList.add("py-4");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  });
+</script>

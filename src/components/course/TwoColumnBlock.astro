@@ -1,6 +1,8 @@
 ---
 import Diamond from "./Diamond/Diamond.astro";
-
+import TwoColumns from "./TwoColumns.astro";
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
 interface Props {
   title: string;
 }
@@ -8,24 +10,14 @@ interface Props {
 const { title = "Как всё пройдёт" } = Astro.props;
 ---
 
-<section class="max-w-[1200px] mx-auto">
-  <div
-    class="self-stretch pl-14 pt-16 pb-12 inline-flex justify-start items-start gap-20"
-  >
-    <div class="flex justify-center items-center gap-8">
-      <Diamond />
-      <h2
-        class="justify-start text-stone-200 text-5xl font-bold font-serif leading-[52px]"
-      >
-        {title}
-      </h2>
-    </div>
-    <div
-      class="px-3 pt-2 pb-3 rounded-xl inline-flex flex-col justify-center items-start gap-5 overflow-hidden"
-    >
-      <div class="justify-start text-2xl font-normal font-sans leading-9">
-        <slot />
-      </div>
-    </div>
+<TwoColumns>
+  <div class="flex items-center gap-3 md:gap-6" slot="left">
+    <Diamond />
+    <Heading level="h2">{title}</Heading>
   </div>
-</section>
+  <div class="px-3 pt-2 pb-3" slot="right">
+    <Text class="flex flex-col gap-3 text-2xl">
+      <slot />
+    </Text>
+  </div>
+</TwoColumns>

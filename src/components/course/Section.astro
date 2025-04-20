@@ -8,8 +8,8 @@ interface Props extends HTMLAttributes<"section"> {
 const { class: className, type = "default", ...props } = Astro.props;
 
 const types = {
-  default: "container mx-auto px-20 pt-4",
-  narrow: "container mx-auto px-20 pt-4 max-w-4xl",
+  default: "container mx-auto px-4 md:px-20 pt-4",
+  narrow: "container mx-auto px-4 md:px-20 pt-4 max-w-4xl",
 };
 ---
 

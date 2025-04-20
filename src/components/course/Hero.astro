@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import Heading from "./Heading.astro";
 import { Image } from "astro:assets";
 
 interface Props {
@@ -22,22 +23,21 @@ const {
 ---
 
 <div class="flex flex-col items-center text-center py-8">
-  <h1 class="text-6xl md:text-6xl font-bold mb-2 leading-none font-serif">
-    {title}
-  </h1>
-  <p class="text-xl md:text-2xl mb-8 max-w-2xl font-sans">{subtitle}</p>
-
+  <div class="flex flex-col gap-2">
+    <Heading level="h1">{title}</Heading>
+    <p class="text-xl md:text-2xl mb-8 max-w-2xl font-sans">{subtitle}</p>
+  </div>
   <div class="w-full my-8">
     <Image
       src={image}
       alt={imageAlt}
-      class="w-full max-h-[450px] object-cover rounded-sm"
+      class="w-full max-h-[500px] max-w-4xl mx-auto object-cover rounded-sm"
     />
   </div>
 
   <div class="text-left text-lg max-w-3xl mx-auto mb-8 flex flex-col gap-4">
-    <div class="flex flex-col gap-1">
-      <div class="">
+    <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-3">
         <slot />
       </div>
       <div class="font-semibold">{startDate}</div>
