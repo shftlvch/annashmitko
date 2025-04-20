@@ -7,10 +7,17 @@ import CourseLayout from "../../layouts/Course.astro";
 import Button from "../../components/course/Button.astro";
 ---
 
-<CourseLayout title="Manual Focus mobile photography course by Anna Shmitko">
+<CourseLayout
+  title="Ручной фокус — Анна Шмитько"
+  description="Курс о мобильной фотографии, наблюдении и памяти"
+  meta={{
+    title: "Ручной фокус",
+    description: "Курс о мобильной фотографии, наблюдении и памяти",
+  }}
+>
   <Toolbar />
-  <main>
-    <Section class="py-32">
+  <main class="py-32 h-[calc(100vh-200px)]">
+    <Section>
       <Heading level="h1" class="text-center mb-8">Спасибо за запись!</Heading>
 
       <Text class="text-center max-w-2xl mx-auto mb-8">

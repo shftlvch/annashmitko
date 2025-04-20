@@ -19,7 +19,14 @@ import ep05 from "./course/_images/ep05.jpg";
 import heroImage from "./course/_images/hero-3.jpg";
 ---
 
-<CourseLayout title="Manual Focus mobile photography course by Anna Shmitko">
+<CourseLayout
+  title="Ручной фокус — Анна Шмитько"
+  description="Курс о мобильной фотографии, наблюдении и памяти"
+  meta={{
+    title: "Ручной фокус",
+    description: "Курс о мобильной фотографии, наблюдении и памяти",
+  }}
+>
   <Toolbar />
   <main>
     <Section id="description">
@@ -90,7 +97,7 @@ import heroImage from "./course/_images/hero-3.jpg";
     </Section>
     <Section class="my-24" id="schedule">
       <div class="flex items-center gap-3 md:gap-6 mb-12">
-        <Icon icon="schedule"/>
+        <Icon icon="schedule" />
         <Heading level="h2"> Программа курса </Heading>
       </div>
       <div class="flex flex-col gap-24">

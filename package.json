@@ -16,6 +16,7 @@
     "@fontsource-variable/raleway": "^5.0.17",
     "@fontsource-variable/roboto-serif": "^5.2.5",
     "astro": "^5.7.4",
+    "astro-seo": "^0.8.4",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"
   },
