@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="flex flex-col items-center text-center py-8">
+<div class="flex flex-col items-center text-center py-4">
   <div class="flex flex-col gap-2">
     <Heading level="h1">{title}</Heading>
     <p class="text-xl md:text-2xl mb-8 max-w-2xl font-sans">{subtitle}</p>
@@ -44,7 +44,7 @@ const {
     </div>
 
     <div class="mt-6 flex justify-center">
-      <Button text="Записаться сейчас" variant="primary" size="lg" />
+      <Button text="Записаться сейчас" variant="primary" size="lg" href="/course/apply" />
     </div>
   </div>
 </div>

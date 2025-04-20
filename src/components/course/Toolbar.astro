@@ -1,4 +1,6 @@
 ---
+import Nav from "./Nav.astro";
+
 interface Props {
   className?: string;
 }
@@ -19,29 +21,7 @@ const { className = "" } = Astro.props;
         >@annashmitko</a
       >
     </div>
-
-    <nav class="w-full md:w-auto">
-      <ul class="flex justify-center md:justify-start space-x-4 md:space-x-6">
-        <li>
-          <a href="#about" class="hover:text-gray-600 transition-colors"
-            >О курсе</a
-          >
-        </li>
-        <li>
-          <a href="#schedule" class="hover:text-gray-600 transition-colors"
-            >Программа</a
-          >
-        </li>
-        <li>
-          <a href="#pricing" class="hover:text-gray-600 transition-colors"
-            >Стоимость</a
-          >
-        </li>
-        <li>
-          <a href="#faq" class="hover:text-gray-600 transition-colors">FAQ</a>
-        </li>
-      </ul>
-    </nav>
+    <Nav class="w-full md:w-auto" />
   </div>
 </header>
 

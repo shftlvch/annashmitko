@@ -1,25 +1,24 @@
 ---
 import Heading from "./Heading.astro";
 import Text from "./Text.astro";
-import Diamond from "./Diamond/Diamond.astro";
+import Icon from "./Icon/Icon.astro";
 import TwoColumns from "./TwoColumns.astro";
 
 interface Props {
   title: string;
   features: string[];
-  icon?: ImageMetadata;
 }
 
 const { title = "", features = [] } = Astro.props;
 ---
 
 <TwoColumns class="py-8 py-12">
-  <div class="flex items-center gap-4 mb-8" slot="left">
-    <Diamond class="w-10 h-10 md:w-12 md:h-12" />
+  <div class="flex items-center gap-4" slot="left">
+    <Icon icon="star" class="w-10 h-10 md:w-12 md:h-12" />
     <Heading level="h2">{title}</Heading>
   </div>
 
-  <Text slot="right" class="pt-2">
+  <Text slot="right" class="pt-2 pl-2 md:pl-0">
     <ul class="list-none p-0 m-0">
       {
         features.map((feature) => (

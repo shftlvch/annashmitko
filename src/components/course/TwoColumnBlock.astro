@@ -1,5 +1,5 @@
 ---
-import Diamond from "./Diamond/Diamond.astro";
+import Icon from "./Icon/Icon.astro";
 import TwoColumns from "./TwoColumns.astro";
 import Heading from "./Heading.astro";
 import Text from "./Text.astro";
@@ -12,7 +12,7 @@ const { title = "Как всё пройдёт" } = Astro.props;
 
 <TwoColumns>
   <div class="flex items-center gap-3 md:gap-6" slot="left">
-    <Diamond />
+    <Icon icon="star" />
     <Heading level="h2">{title}</Heading>
   </div>
   <div class="px-3 pt-2 pb-3" slot="right">

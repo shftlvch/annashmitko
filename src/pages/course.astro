@@ -4,11 +4,13 @@ import FAQ from "../components/course/FAQ.astro";
 import FeaturesRow from "../components/course/FeaturesRow.astro";
 import Heading from "../components/course/Heading.astro";
 import Hero from "../components/course/Hero.astro";
+import Icon from "../components/course/Icon/Icon.astro";
 import List from "../components/course/List.astro";
 import Pricing from "../components/course/Pricing.astro";
 import Section from "../components/course/Section.astro";
 import Toolbar from "../components/course/Toolbar.astro";
 import TwoColumnBlock from "../components/course/TwoColumnBlock.astro";
+import CourseProgram from "../components/icons/CourseProgram.astro";
 import CourseLayout from "../layouts/Course.astro";
 import ep01 from "./images/ep01.jpg";
 import ep02 from "./images/ep02.jpg";
@@ -58,7 +60,7 @@ import heroImage from "./images/hero-3.jpg";
         ]}
       />
       <FeaturesRow
-        title="Для кого этот курс"
+        title="Для кого этот курс"
         features={[
           "Для тех, кто любит снимать",
           "Тех, кто занимается соцсетями компании",
@@ -67,7 +69,7 @@ import heroImage from "./images/hero-3.jpg";
         ]}
       />
       <FeaturesRow
-        title="Кому курс не подойдет"
+        title="Кому курс не подойдет"
         features={[
           "Тем, кто хочет больше знать об истории фотографии",
           "Снимает на камеру и хочет улучшить навык работы с ней",
@@ -88,7 +90,10 @@ import heroImage from "./images/hero-3.jpg";
       </TwoColumnBlock>
     </Section>
     <Section class="my-24" id="schedule">
-      <Heading level="h2" class="mb-12">Программа курса</Heading>
+      <div class="flex items-center gap-3 md:gap-6 mb-12">
+        <Icon icon="schedule"/>
+        <Heading level="h2"> Программа курса </Heading>
+      </div>
       <div class="flex flex-col gap-24">
         <CourseScheduleBlock
           num="1"
@@ -113,7 +118,7 @@ import heroImage from "./images/hero-3.jpg";
 
         <CourseScheduleBlock
           num="2"
-          title="Контекст, деталь и позиция"
+          title="Контекст, деталь и позиция"
           date="23 мая, 11:00 CET (12:00 MSK)"
           image={ep02}
           align="reverse"
@@ -157,7 +162,7 @@ import heroImage from "./images/hero-3.jpg";
 
         <CourseScheduleBlock
           num="4"
-          title="От фотографии к фотоистории"
+          title="От фотографии к фотоистории"
           date="06 июня, 11:00 CET (12:00 MSK)"
           image={ep04}
           align="reverse"

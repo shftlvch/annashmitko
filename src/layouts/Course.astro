@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/public-sans";
 import "@fontsource-variable/roboto-serif";
+import Footer from "../components/course/Footer.astro";
 
 interface Props {
   title: string;
@@ -26,6 +27,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>
@@ -34,8 +36,8 @@ const { title } = Astro.props;
   /* @tailwind utilities; */
 
   :root {
-    --foreground-color: #E4DAD7;
-    --background-color: #0D0402;
+    --foreground-color: #e4dad7;
+    --background-color: #0d0402;
     --radius: 12px;
   }
 
@@ -62,6 +64,4 @@ const { title } = Astro.props;
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(228, 218, 215, 0.3);
   }
-
-  
 </style>

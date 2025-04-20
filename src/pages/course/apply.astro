@@ -1,0 +1,28 @@
+---
+import Heading from "../../components/course/Heading.astro";
+import Section from "../../components/course/Section.astro";
+import TallyForm from "../../components/course/TallyForm.astro";
+import Text from "../../components/course/Text.astro";
+import Toolbar from "../../components/course/Toolbar.astro";
+import CourseLayout from "../../layouts/Course.astro";
+---
+
+<CourseLayout title="Manual Focus mobile photography course by Anna Shmitko">
+  <Toolbar />
+  <main>
+    <Section>
+      <Heading level="h1" class="text-center mt-12 mb-8"
+        >Записаться на курс</Heading
+      >
+
+      <Text class="text-center max-w-2xl mx-auto mb-8">
+        Заполните форму ниже, чтобы записаться на курс. Мы свяжемся с вами в
+        ближайшее время.
+      </Text>
+
+      <div class="max-w-3xl mx-auto">
+        <TallyForm />
+      </div>
+    </Section>
+  </main>
+</CourseLayout>
