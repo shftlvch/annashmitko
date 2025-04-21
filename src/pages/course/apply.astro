@@ -8,10 +8,10 @@ import CourseLayout from "../../layouts/Course.astro";
 ---
 
 <CourseLayout
-  title="Ручной фокус — Анна Шмитько"
+  title="Запись на курс — Ручной фокус — Анна Шмитько"
   description="Курс о мобильной фотографии, наблюдении и памяти"
   meta={{
-    title: "Ручной фокус",
+    title: "Запись на курс — Ручной фокус",
     description: "Курс о мобильной фотографии, наблюдении и памяти",
   }}
 >
@@ -19,16 +19,24 @@ import CourseLayout from "../../layouts/Course.astro";
   <main>
     <Section>
       <Heading level="h1" class="text-center mt-12 mb-8"
-        >Записаться на курс</Heading
+        >Записаться на&nbsp;курс</Heading
       >
 
-      <Text class="text-center max-w-2xl mx-auto mb-8">
-        Заполните форму ниже, чтобы записаться на курс. Мы свяжемся с вами в
-        ближайшее время.
+      <Text class="md:text-center mb-4">
+        Заполните форму ниже, чтобы записаться на курс. <br /> Мы свяжемся с вами
+        в течение 24-х часов и пришлем ссылку на оплату выбранным способом.
+      </Text>
+      <Text class="md:text-center mb-8" size="sm">
+        Если вы хотите записаться на бесплатное место, пожалуйста, используйте
+        <a href="/course/apply-free" class="text-primary underline">эту форму</a
+        >.
       </Text>
 
       <div class="max-w-3xl mx-auto">
-        <TallyForm />
+        <TallyForm
+          id="mZQDRB"
+          title="Запись на курс мобильной фотографии Ани Шмитько"
+        />
       </div>
     </Section>
   </main>

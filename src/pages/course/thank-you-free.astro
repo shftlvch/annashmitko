@@ -8,10 +8,10 @@ import Button from "../../components/course/Button.astro";
 ---
 
 <CourseLayout
-  title="Спасибо за запись на курс — Ручной фокус — Анна Шмитько"
+  title="Спасибо за запись на бесплатное место — Ручной фокус — Анна Шмитько"
   description="Курс о мобильной фотографии, наблюдении и памяти"
   meta={{
-    title: "Спасибо за запись на курс — Ручной фокус",
+    title: "Спасибо за запись на бесплатное место — Ручной фокус",
     description: "Курс о мобильной фотографии, наблюдении и памяти",
     noindex: true,
   }}
@@ -20,12 +20,18 @@ import Button from "../../components/course/Button.astro";
   <main class="py-32 h-[calc(100vh-200px)]">
     <Section class="flex flex-col gap-8">
       <div class="flex flex-col">
-        <Heading level="h1" class="text-center mb-8">Спасибо за запись!</Heading
+        <Heading level="h1" class="text-center mb-8"
+          >Спасибо за запись на бесплатное место!</Heading
         >
 
-        <Text class="text-center max-w-2xl mx-auto mb-8">
-          Ожидайте <strong>ссылку на оплату</strong>
-          выбранным способом в течение 24-х часов. ✨
+        <Text class="md:text-center mb-4">
+          Мы будем рассматривать вашу заявку в течение 7-14 дней, ожидайте
+          ответа на выбранный вами способ связи. ✨
+        </Text>
+        <Text class="md:text-center mb-8" size="sm">
+          Если вы хотите записаться на стардартное место, пожалуйста,
+          используйте
+          <a href="/course/apply" class="text-primary underline">эту форму</a>.
         </Text>
       </div>
       <div class="flex justify-center">

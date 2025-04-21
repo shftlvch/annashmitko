@@ -1,0 +1,41 @@
+---
+import Heading from "../../components/course/Heading.astro";
+import Section from "../../components/course/Section.astro";
+import TallyForm from "../../components/course/TallyForm.astro";
+import Text from "../../components/course/Text.astro";
+import Toolbar from "../../components/course/Toolbar.astro";
+import CourseLayout from "../../layouts/Course.astro";
+---
+
+<CourseLayout
+  title="Запись на бесплатное место — Ручной фокус — Анна Шмитько"
+  description="Курс о мобильной фотографии, наблюдении и памяти"
+  meta={{
+    title: "Запись на бесплатное место — Ручной фокус",
+    description: "Курс о мобильной фотографии, наблюдении и памяти",
+  }}
+>
+  <Toolbar />
+  <main>
+    <Section>
+      <Heading level="h1" class="text-center mt-12 mb-8"
+        >Записаться на курс</Heading
+      >
+      <div class="text-center mb-8 text-2xl font-bold text-primary">
+        Бесплатное место
+      </div>
+
+      <Text class="text-center max-w-2xl mx-auto mb-8">
+        Заполните форму ниже, чтобы подать заявку на бесплатное место
+        на&nbsp;курсе. Мы свяжемся с вами в течение 7-14 дней.
+      </Text>
+
+      <div class="max-w-3xl mx-auto">
+        <TallyForm
+          id="w5rKxb"
+          title="Запись на бесплатное место на курсе мобильной фотографии Ани Шмитько"
+        />
+      </div>
+    </Section>
+  </main>
+</CourseLayout>

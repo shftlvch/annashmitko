@@ -3,13 +3,13 @@ interface Props {
   tallyFormSrc?: string;
   height?: number | string;
   class?: string;
+  id?: string;
+  title?: string;
 }
 
-const {
-  tallyFormSrc = "https://tally.so/embed/mZQDRB?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-  height = "767",
-  class: className = "",
-} = Astro.props;
+const { height = "767", class: className = "", id, title } = Astro.props;
+
+const tallyFormSrc = `https://tally.so/embed/${id}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
 ---
 
 <div class={`tally-form-container ${className}`}>
@@ -18,7 +18,7 @@ const {
     loading="lazy"
     width="100%"
     height={height}
-    title="Запись на курс мобильной фотографии Ани Шмитько"></iframe>
+    title={title}></iframe>
 </div>
 
 <script>
@@ -51,4 +51,3 @@ const {
     windowWithTally.Tally.loadEmbeds();
   }
 </script>
-

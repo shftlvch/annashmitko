@@ -1,14 +1,24 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"div"> {}
+interface Props extends HTMLAttributes<"div"> {
+  size?: "xl" | "lg" | "md" | "sm";
+}
 
-const { class: className, ...props } = Astro.props;
+const { class: className, size = "xl", ...props } = Astro.props;
+
+const textSize = {
+  xl: "text-xl",
+  lg: "text-lg",
+  md: "text-md",
+  sm: "text-sm",
+};
 ---
 
 <div
   class:list={[
-    "self-stretch justify-start  text-xl font-normal font-sans leading-loose",
+    "self-stretch justify-start font-normal font-sans leading-loose",
+    textSize[size],
     className,
   ]}
   {...props}
