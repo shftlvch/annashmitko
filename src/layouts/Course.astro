@@ -35,19 +35,28 @@ const { title, description, meta } = Astro.props;
     <SEO
       title={title}
       description={description}
+      twitter={{
+        card: "summary_large_image",
+        creator: "@annashmikto",
+        description: meta.description || description,
+        title: meta.title || title,
+        image: coverImage.src,
+        imageAlt: meta.title || title,
+        site: "https://annashmikto.com",
+      }}
       openGraph={{
         basic: {
-          title: meta.title,
+          title: meta.title || title,
           type: "website",
           image: coverImage.src,
         },
         optional: {
-          description: description,
+          description: meta.description || description,
           siteName: "Анна Шмитько",
           locale: "ru",
         },
         image: {
-          alt: meta.title,
+          alt: meta.title || title,
           height: coverImage.height,
           width: coverImage.width,
           url: coverImage.src,
