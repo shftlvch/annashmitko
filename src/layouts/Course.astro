@@ -1,8 +1,11 @@
 ---
 import "@fontsource-variable/public-sans";
 import "@fontsource-variable/roboto-serif";
-import Footer from "../components/course/Footer.astro";
 import { SEO } from "astro-seo";
+import Footer from "../components/course/Footer.astro";
+import TagManager from "../components/tags/TagManager.astro";
+import TagManagerNoScript from "../components/tags/TagManagerNoScript.astro";
+
 import coverImage from "./_images/cover.png";
 
 interface Props {
@@ -32,6 +35,7 @@ const { title, description, meta } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <TagManager id="GTM-KS2HB3VR" />
     <SEO
       title={title}
       description={description}
@@ -66,6 +70,7 @@ const { title, description, meta } = Astro.props;
     />
   </head>
   <body>
+    <TagManagerNoScript />
     <slot />
     <Footer />
   </body>
