@@ -1,4 +1,5 @@
 ---
+import About from "../components/course/About/About.astro";
 import CourseScheduleBlock from "../components/course/CourseScheduleBlock.astro";
 import FAQ from "../components/course/FAQ.astro";
 import FeaturesRow from "../components/course/FeaturesRow.astro";
@@ -224,9 +225,18 @@ import heroImage from "./course/_images/hero-3.jpg";
           ]}
           slot="content"
         />
+        <p class="" slot="footer">
+          Хотите купить курс для редакции или бизнеса? Напишите на
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="mailto:annashmitko@gmail.com"
+            class="underline">annashmitko@gmail.com</a
+          >
+        </p>
       </Pricing>
     </Section>
-    <Section id="faq" type="narrow" ‰>
+    <Section id="faq" type="narrow">
       <FAQ
         title="Вопросы и ответы"
         items={[
@@ -266,6 +276,13 @@ import heroImage from "./course/_images/hero-3.jpg";
           },
         ]}
       />
+    </Section>
+    <Section id="author" type="narrow" class="md:pt-16">
+      <About>
+        Анна Шмитко — режиссерка-документалистка и&nbsp;фотографка, выпускница
+        школы марины разбежкиной. сотрудничала с&nbsp;magnum&nbsp;photos,
+        national geographic, adidas, «такие&nbsp;дела», гоголь-центром и др.
+      </About>
     </Section>
   </main>
 </CourseLayout>
