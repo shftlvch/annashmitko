@@ -22,11 +22,11 @@ import heroImage from "./course/_images/hero-3.jpg";
 
 <CourseLayout
   title="Ручной фокус — Анна Шмитько"
-  description="5 недель, 10-12 человек, старт 17 мая. Курс о мобильной фотографии, наблюдении и памяти"
+  description="5 недель, 10-12 человек, старт 17 и 18 июля. Курс о мобильной фотографии, наблюдении и памяти"
   meta={{
     title: "Ручной фокус",
     description:
-      "5 недель, 10-12 человек, старт 17 мая. Курс о мобильной фотографии, наблюдении и памяти",
+      "5 недель, 10-12 человек, старт 17 и 18 июля. Курс о мобильной фотографии, наблюдении и памяти",
   }}
 >
   <Toolbar />
@@ -37,7 +37,7 @@ import heroImage from "./course/_images/hero-3.jpg";
         subtitle="курс о мобильной фотографии, наблюдении и памяти"
         image={heroImage}
         imageAlt="Фотограф с мобильным телефоном"
-        startDate="Начинаем 17 мая."
+        startDate="Утренняя группа старт 17 июля. Вечерняя — 18 июля."
       >
         <p>
           Привет, меня зовут Аня Шмитько. Я фотографка и режиссерка
@@ -52,8 +52,11 @@ import heroImage from "./course/_images/hero-3.jpg";
           телефон.
         </p>
         <p>
-          5 недель. Онлайн-группа 10-12 человек. Теория (немного), практика
-          (много), обсуждения и финальный проект.
+          Мы будем встречаться раз в неделю. Групп две - субботним утром и
+          воскресным вечером по европейскому времени. Выберите подходящую. Это
+          онлайн-встречи на 2 — 2,5 часа. В начале каждой мы немного поговорим о
+          теории, а большую часть посвятим практике. Домашние задания с
+          проверкой — будут.
         </p>
       </Hero>
     </Section>
@@ -106,7 +109,8 @@ import heroImage from "./course/_images/hero-3.jpg";
         <CourseScheduleBlock
           num="1"
           title="Введение в мобильную фотографию"
-          date="17 мая, 11:00 CET (12:00 MSK)"
+          date="17 июля, 12:00 МСК"
+          date2="18 июля, 20:00 МСК"
           image={ep01}
         >
           <List
@@ -127,7 +131,8 @@ import heroImage from "./course/_images/hero-3.jpg";
         <CourseScheduleBlock
           num="2"
           title="Контекст, деталь и позиция"
-          date="24 мая, 11:00 CET (12:00 MSK)"
+          date="26 июля, 12:00 МСК"
+          date2="27 июля, 20:00 МСК"
           image={ep02}
           align="reverse"
         >
@@ -149,15 +154,22 @@ import heroImage from "./course/_images/hero-3.jpg";
 
         <CourseScheduleBlock
           num="3"
-          title="Этика и репортаж"
-          date="31 мая, 11:00 CET (12:00 MSK)"
+          title="Этика и репортаж. Длительное наблюдение"
+          date="02 августа, 12:00 МСК"
+          date2="03 августа, 20:00 МСК"
           image={ep03}
         >
+          <p>
+            Ко-хост занятия: <a
+              href="https://www.instagram.com/kate_kuznetsova_photo/"
+              target="_blank"
+              rel="noopener noreferrer">Катя Кузнецова</a>
+          </p>
           <List
             items={[
               "Границы и согласия, правовые аспекты",
-              "Виды репортажа",
-              "Практика: обработка (hsl, кривые, зерно), разбор ситуаций",
+              "Виды репортажа, длительное наблюдение",
+              "Практика: обработка (hsl, кривые, зерно)",
             ]}
             slot="content"
           />
@@ -171,7 +183,8 @@ import heroImage from "./course/_images/hero-3.jpg";
         <CourseScheduleBlock
           num="4"
           title="От фотографии к фотоистории"
-          date="07 июня, 11:00 CET (12:00 MSK)"
+          date="09 августа, 12:00 МСК"
+          date2="10 августа, 20:00 МСК"
           image={ep04}
           align="reverse"
         >
@@ -194,7 +207,8 @@ import heroImage from "./course/_images/hero-3.jpg";
         <CourseScheduleBlock
           num="5"
           title="Портфолио-ревю"
-          date="14 июня, 11:00 CET (12:00 MSK)"
+          date="16 августа, 12:00 МСК"
+          date2="17 августа, 20:00 МСК"
           image={ep05}
         >
           <List
@@ -213,12 +227,12 @@ import heroImage from "./course/_images/hero-3.jpg";
     </Section>
     <Section class="flex flex-col gap-24" id="pricing" type="narrow">
       <Pricing
-        price="220 евро — Cтоимость курса"
+        price="250 евро — Cтоимость курса"
         buttonText="Записаться сейчас"
       >
         <List
           items={[
-            "Cтандартное место (220 евро / 21.000 руб / 250 usd(t) / 920 шек)",
+            "Cтандартное место (250 евро / 23.000 руб / 290 usd(t) / 970 шек)",
             "Можно оплатить почти любым удобным переводом",
             "Можно оплатить подвешенный курс для другого участника",
             "На курсе есть одно бесплатное место",
@@ -279,7 +293,7 @@ import heroImage from "./course/_images/hero-3.jpg";
     </Section>
     <Section id="author" type="narrow" class="md:pt-16">
       <About>
-        Анна Шмитко — режиссерка-документалистка и&nbsp;фотографка, выпускница
+        Анна Шмитько — режиссерка-документалистка и&nbsp;фотографка, выпускница
         школы марины разбежкиной. сотрудничала с&nbsp;magnum&nbsp;photos,
         national geographic, adidas, «такие&nbsp;дела», гоголь-центром и др.
       </About>
