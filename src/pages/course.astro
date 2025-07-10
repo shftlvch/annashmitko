@@ -1,6 +1,6 @@
 ---
 import About from "../components/course/About/About.astro";
-import CourseScheduleBlock from "../components/course/CourseScheduleBlock.astro";
+import CourseScheduleBlock from "@/components/course/CourseScheduleBlock.astro";
 import FAQ from "../components/course/FAQ.astro";
 import FeaturesRow from "../components/course/FeaturesRow.astro";
 import Heading from "../components/course/Heading.astro";
@@ -108,7 +108,9 @@ import heroImage from "./course/_images/hero-3.jpg";
           num="1"
           title="Введение в мобильную фотографию"
           date="19 июля, 12:00 МСК"
+          dateTime={new Date("2025-07-19T12:00:00+03:00")}
           date2="20 июля, 20:00 МСК"
+          dateTime2={new Date("2025-07-20T20:00:00+03:00")}
           image={ep01}
         >
           <List
@@ -130,7 +132,9 @@ import heroImage from "./course/_images/hero-3.jpg";
           num="2"
           title="Контекст, деталь и позиция"
           date="26 июля, 12:00 МСК"
+          dateTime={new Date("2025-07-26T12:00:00+03:00")}
           date2="27 июля, 20:00 МСК"
+          dateTime2={new Date("2025-07-27T20:00:00+03:00")}
           image={ep02}
           align="reverse"
         >
@@ -154,7 +158,9 @@ import heroImage from "./course/_images/hero-3.jpg";
           num="3"
           title="Этика и репортаж. Длительное наблюдение"
           date="02 августа, 12:00 МСК"
+          dateTime={new Date("2025-08-02T12:00:00+03:00")}
           date2="03 августа, 20:00 МСК"
+          dateTime2={new Date("2025-08-03T20:00:00+03:00")}
           image={ep03}
         >
           <p class="text-lg" slot="header">
@@ -183,7 +189,9 @@ import heroImage from "./course/_images/hero-3.jpg";
           num="4"
           title="От фотографии к фотоистории"
           date="09 августа, 12:00 МСК"
+          dateTime={new Date("2025-08-09T12:00:00+03:00")}
           date2="10 августа, 20:00 МСК"
+          dateTime2={new Date("2025-08-10T20:00:00+03:00")}
           image={ep04}
           align="reverse"
         >
@@ -207,7 +215,9 @@ import heroImage from "./course/_images/hero-3.jpg";
           num="5"
           title="Портфолио-ревю"
           date="16 августа, 12:00 МСК"
+          dateTime={new Date("2025-08-16T12:00:00+03:00")}
           date2="17 августа, 20:00 МСК"
+          dateTime2={new Date("2025-08-17T20:00:00+03:00")}
           image={ep05}
         >
           <List

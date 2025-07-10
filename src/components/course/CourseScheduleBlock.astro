@@ -8,7 +8,9 @@ interface Props extends HTMLAttributes<"div"> {
   num: string;
   title: string;
   date: string;
+  dateTime: Date;
   date2: string;
+  dateTime2: Date;
   image: ImageMetadata;
   align?: "default" | "reverse";
 }
@@ -17,7 +19,9 @@ const {
   num,
   title,
   date,
+  dateTime,
   date2,
+  dateTime2,
   image,
   align = "default",
   class: className,
@@ -39,8 +43,8 @@ const {
         </div>
         <div class="h-px bg-stone-300 flex-grow mx-2"></div>
         <div class="flex flex-col gap-1 text-sm">
-          <div>Утром, группа 1: {date}</div>
-          <div>Вечером, группа 2: {date2}</div>
+          <div>Утром, группа 1: <span class="tooltip tooltip-open tooltip-top browser-timezone-tooltip" data-iso={dateTime.toISOString()}>{date}</span></div>
+          <div>Вечером, группа 2: <span class="tooltip tooltip-open tooltip-top browser-timezone-tooltip" data-iso={dateTime2.toISOString()}>{date2}</span></div>
         </div>
       </div>
       <div class="flex flex-col gap-4">
@@ -56,3 +60,20 @@ const {
     </div>
   </div>
 </TwoColumns>
+
+<script>
+  // Format dates in browser timezone for tooltips
+  document.addEventListener('DOMContentLoaded', function() {
+    const tooltips = document.querySelectorAll('.browser-timezone-tooltip');
+    tooltips.forEach(tooltip => {
+      const isoDate = tooltip.getAttribute('data-iso');
+      if (isoDate) {
+        const date = new Date(isoDate);
+        const formattedDate = date.toLocaleString('ru-RU', {
+          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        });
+        tooltip.setAttribute('data-tip', `${formattedDate} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`);
+      }
+    });
+  });
+</script>
