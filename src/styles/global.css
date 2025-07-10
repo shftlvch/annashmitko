@@ -69,7 +69,7 @@
   
   .tooltip:before {
     content: attr(data-tip);
-    @apply absolute z-10 w-max whitespace-pre-line rounded-sm px-2 py-1 text-sm opacity-0 transition-opacity duration-300;
+    @apply absolute z-10 w-max max-w-xs sm:max-w-sm md:max-w-md rounded-sm px-2 py-1 text-sm opacity-0 transition-opacity duration-300;
     @apply invisible pointer-events-none;
     @apply -top-2 left-1/2 -translate-x-1/2 -translate-y-full;
     background-color: var(--color-background);
@@ -116,5 +116,11 @@
   .tooltip-right:after {
     @apply right-0 top-1/2 -translate-y-1/2 border-t-transparent border-l-transparent;
     border-right-color: var(--color-text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .tooltip:before {
+      @apply -top-2 left-0 -translate-x-1/2 -translate-y-full;
+    }
   }
 }
