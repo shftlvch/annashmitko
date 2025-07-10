@@ -5,8 +5,8 @@ import { SEO } from "astro-seo";
 import Footer from "../components/course/Footer.astro";
 import TagManager from "../components/tags/TagManager.astro";
 import TagManagerNoScript from "../components/tags/TagManagerNoscript.astro";
-
 import coverImage from "./_images/cover.png";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -76,10 +76,6 @@ const { title, description, meta } = Astro.props;
   </body>
 </html>
 <style is:global>
-  /* @tailwind base; */
-  /* @tailwind components; */
-  /* @tailwind utilities; */
-
   :root {
     --foreground-color: #e4dad7;
     --background-color: #0d0402;
