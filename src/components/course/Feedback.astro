@@ -38,8 +38,8 @@ const { title, buttonText } = Astro.props;
   <feedback-slider class="relative block">
     <button
       class:list={[
-        "slider-button",
-        "absolute top-1/2 -translate-y-1/2 -left-6 max-md:left-0 z-10 flex items-center justify-center",
+        "slider-button hidden md:flex",
+        "absolute top-1/2 -translate-y-1/2 -left-6 max-md:left-0 z-10 items-center justify-center",
         "bg-white/10 border border-black/10 rounded-full w-12 h-12 cursor-pointer transition-all duration-200 shadow-md",
         "hover:bg-white/60 hover:shadow-lg",
         "disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none disabled:bg-transparent",
@@ -62,8 +62,8 @@ const { title, buttonText } = Astro.props;
     </button>
     <button
       class:list={[
-        "slider-button",
-        "absolute top-1/2 -translate-y-1/2 -right-6 max-md:right-0 z-10 flex items-center justify-center",
+        "slider-button hidden md:flex",
+        "absolute top-1/2 -translate-y-1/2 -right-6 max-md:right-0 z-10 items-center justify-center",
         "bg-white/10 border border-black/10 rounded-full w-12 h-12 cursor-pointer transition-all duration-200 shadow-md",
         "hover:bg-white/60 hover:shadow-lg",
         "disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none disabled:bg-transparent",
