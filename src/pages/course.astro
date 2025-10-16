@@ -1,6 +1,7 @@
 ---
-import About from "../components/course/About/About.astro";
 import CourseScheduleBlock from "@/components/course/CourseScheduleBlock.astro";
+import Feedback from "@/components/course/Feedback.astro";
+import About from "../components/course/About/About.astro";
 import FAQ from "../components/course/FAQ.astro";
 import FeaturesRow from "../components/course/FeaturesRow.astro";
 import Heading from "../components/course/Heading.astro";
@@ -275,6 +276,9 @@ import heroImage from "./course/_images/hero-3.jpg";
           },
         ]}
       />
+    </Section>
+    <Section id="feedback" type="narrow">
+      <Feedback title="Отзывы" buttonText="Записаться сейчас" />
     </Section>
     <Section id="author" type="narrow" class="md:pt-16">
       <About>

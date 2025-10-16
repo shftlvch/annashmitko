@@ -1,0 +1,185 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Heading from "./Heading.astro";
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  buttonText: string;
+}
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/feedback/*.{jpeg,jpg,png,gif}"
+);
+
+const { title, buttonText } = Astro.props;
+---
+
+<div class="py-16">
+  <div class="flex justify-between items-center mb-8">
+    <Heading level="h2">{title}</Heading>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        ><path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m18 8l4 4l-4 4M2 12h20M6 8l-4 4l4 4"></path></svg
+      >
+    </div>
+  </div>
+  <feedback-slider class="relative block">
+    <button
+      class:list={[
+        "slider-button",
+        "absolute top-1/2 -translate-y-1/2 -left-6 max-md:left-0 z-10 flex items-center justify-center",
+        "bg-white/10 border border-black/10 rounded-full w-12 h-12 cursor-pointer transition-all duration-200 shadow-md",
+        "hover:bg-white/60 hover:shadow-lg",
+        "disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none disabled:bg-transparent",
+      ]}
+      aria-label="Предыдущий отзыв"
+      data-direction="prev"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button
+      class:list={[
+        "slider-button",
+        "absolute top-1/2 -translate-y-1/2 -right-6 max-md:right-0 z-10 flex items-center justify-center",
+        "bg-white/10 border border-black/10 rounded-full w-12 h-12 cursor-pointer transition-all duration-200 shadow-md",
+        "hover:bg-white/60 hover:shadow-lg",
+        "disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none disabled:bg-transparent",
+      ]}
+      aria-label="Next feedback"
+      data-direction="next"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    <div class="overflow-x-auto scrollbar-hide" data-slider>
+      <div class="flex gap-6 py-1">
+        {
+          Object.values(images).map((image, index) => (
+            <div
+              class:list={[
+                "flex-shrink-0 w-80 md:w-96 feedback-slide",
+                "rounded-sm ring-2 ring-white/10 transition-shadow duration-200",
+              ]}
+            >
+              <Image
+                src={image()}
+                alt={`Feedback image ${index + 1}`}
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </feedback-slider>
+  <div class="flex justify-center items-center pt-12">
+    <Button
+      text={buttonText}
+      variant="primary"
+      size="lg"
+      href="/course/apply"
+    />
+  </div>
+</div>
+
+<style>
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .overflow-x-auto {
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+
+  .feedback-slide {
+    scroll-snap-align: start;
+  }
+</style>
+
+<script>
+  class FeedbackSlider extends HTMLElement {
+    private slider: HTMLElement | null = null;
+    private prevButton: HTMLButtonElement | null = null;
+    private nextButton: HTMLButtonElement | null = null;
+
+    connectedCallback() {
+      this.slider = this.querySelector("[data-slider]");
+      this.prevButton = this.querySelector('[data-direction="prev"]');
+      this.nextButton = this.querySelector('[data-direction="next"]');
+
+      if (!this.slider || !this.prevButton || !this.nextButton) {
+        return;
+      }
+
+      const step = () => this.slider?.clientWidth || 400;
+
+      this.prevButton.addEventListener("click", () => {
+        this.slider?.scrollBy({ left: -step(), behavior: "smooth" });
+      });
+
+      this.nextButton.addEventListener("click", () => {
+        this.slider?.scrollBy({ left: step(), behavior: "smooth" });
+      });
+
+      this.slider.addEventListener("scroll", () => this.updateButtons());
+      window.addEventListener("resize", () => this.updateButtons());
+
+      this.updateButtons();
+    }
+
+    private updateButtons() {
+      if (!this.slider || !this.prevButton || !this.nextButton) {
+        return;
+      }
+
+      const isAtStart = this.slider.scrollLeft <= 0;
+      const isAtEnd =
+        this.slider.scrollLeft >=
+        this.slider.scrollWidth - this.slider.clientWidth - 1;
+
+      this.prevButton.disabled = isAtStart;
+      this.nextButton.disabled = isAtEnd;
+    }
+  }
+
+  customElements.define("feedback-slider", FeedbackSlider);
+</script>
