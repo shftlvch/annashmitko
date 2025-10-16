@@ -6,6 +6,7 @@ import Button from "./Button.astro";
 
 interface Props {
   title: string;
+  description: string;
   buttonText: string;
 }
 
@@ -13,11 +14,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/content/feedback/*.{jpeg,jpg,png,gif}"
 );
 
-const { title, buttonText } = Astro.props;
+const { title, description, buttonText } = Astro.props;
 ---
 
 <div class="py-16">
-  <div class="flex justify-between items-center mb-8">
+  <div class="flex justify-between items-center">
     <Heading level="h2">{title}</Heading>
     <div>
       <svg
@@ -34,6 +35,9 @@ const { title, buttonText } = Astro.props;
           d="m18 8l4 4l-4 4M2 12h20M6 8l-4 4l4 4"></path></svg
       >
     </div>
+  </div>
+  <div class="mb-8">
+    <p class="text-lg">{description}</p>
   </div>
   <feedback-slider class="relative block">
     <button
