@@ -24,8 +24,10 @@ const {
 
 <div class="flex flex-col items-center text-center py-4">
   <div class="flex flex-col gap-2">
-    <Heading level="h1">{title}</Heading>
-    <p class="text-xl md:text-2xl mb-8 max-w-2xl font-sans">{subtitle}</p>
+    <div class="hero-title">
+      <Heading level="h1">{title}</Heading>
+    </div>
+    <p class="hero-subtitle text-xl md:text-2xl mb-8 max-w-2xl font-sans">{subtitle}</p>
   </div>
   <div class="w-full my-8">
     <Image
@@ -48,3 +50,75 @@ const {
     </div>
   </div>
 </div>
+
+<style>
+  @keyframes cameraFocus {
+    0% {
+      filter: blur(8px);
+      transform: scale(1.02);
+    }
+    8.3% {
+      filter: blur(4px);
+      transform: scale(1.01);
+    }
+    16.7% {
+      filter: blur(6px);
+      transform: scale(1.015);
+    }
+    25% {
+      filter: blur(3px);
+      transform: scale(1.005);
+    }
+    33.3% {
+      filter: blur(4px);
+      transform: scale(1.008);
+    }
+    41.7% {
+      filter: blur(1px);
+      transform: scale(1.002);
+    }
+    47.2% {
+      filter: blur(2px);
+      transform: scale(1.003);
+    }
+    55.6%, 100% {
+      filter: blur(0);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glitch {
+    0%, 100% {
+      opacity: 1;
+    }
+    2% {
+      opacity: 0.8;
+    }
+    4% {
+      opacity: 0.9;
+    }
+    6% {
+      opacity: 1;
+    }
+    8% {
+      opacity: 0.85;
+    }
+    10% {
+      opacity: 1;
+    }
+    12% {
+      opacity: 0.9;
+    }
+    14%, 55.6% {
+      opacity: 1;
+    }
+  }
+
+  .hero-title {
+    animation: cameraFocus 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .hero-subtitle {
+    animation: glitch 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+</style>
