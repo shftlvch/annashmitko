@@ -1,4 +1,8 @@
-I am a documentary photographer and cinematographer whose work has been exhibited and screened internationally, including at the Venice International Film Festival, Berlinale, the Israeli Knesset, and venues in Germany and the UK. I have collaborated with Kirill Serebrennikov (Berlin-based) on productions shown at major European festivals, worked with Magnum Photos as a commissioned photographer, contributed to The Lonka Project (an international Holocaust initiative with 300+ photographers from 30 countries), and photographed interviews with Billy Porter, Cynthia Nixon, and Masha Gessen for documentary work referenced in academic collections at UNC Chapel Hill and University of Minnesota. My practice centres on social issues, human rights, and LGBTQ+ stories—with recent photojournalism from the West Bank and Israel.
+I am a documentary photographer and cinematographer whose work has been exhibited and screened internationally, including at the Venice International Film Festival, Berlinale, the Israeli Knesset, and venues in Germany and the UK. 
+
+I have collaborated with Kirill Serebrennikov (Berlin-based) on productions shown at major European festivals, worked with Magnum Photos as a commissioned photographer, contributed to The Lonka Project (an international Holocaust initiative with 300+ photographers from 30 countries), and photographed interviews with Billy Porter, Cynthia Nixon, and Masha Gessen for documentary work referenced in academic collections at UNC Chapel Hill and University of Minnesota. 
+
+My practice centres on social issues, human rights, and LGBTQ+ stories—with recent photojournalism from the West Bank and Israel.
 
 ## Exhibitions & Institutional Commissions
 
@@ -64,6 +68,25 @@ Produced cover imagery and backstage photography used in international-facing ma
 
 Created cover stills used as primary promotional imagery in online film databases and public listings. [IMDB](https://www.imdb.com/title/tt10256894/mediaviewer/rm2420936705/)
 
+## Photojournalism, Editorial & Art Documentation
+
+### Performance Art Documentation | "Груз‑300" (Katrin Nenasheva) (2018)
+
+Produced the primary photographic record of a high-profile public performance, capturing its durational and political dimension with documentary rigour. Images were used by major outlets as evidence-grade documentation. [BBC Russian](https://www.bbc.com/russian/news-45712272), [Colta](https://www.colta.ru/articles/art/20426-pozvonite-aristotelyu)
+
+### Photo Reportage | West Bank (2024)
+
+Field coverage documenting daily life under conflict and displacement, published by international platforms. Demonstrates on-the-ground documentary capability and editorial delivery. [Perspektif](https://perspektif.eu/2024/11/19/andrey-x-isgalin-stratejisi-filistinlileri-topraklarindan-yavas-yavas-surmek/), [11.be](https://11.be/en/testimonial/andrey-x-journalist-and-tiktok-phenomenon-testifies-about-ethnic-cleansing-in-western)
+
+### Participatory Documentary | Immigrant Children in Israel (Shalom / Kruzhok) (2024)
+
+Photographic storytelling created with and for migrant teenagers, combining documentary portraits with a participatory approach. Featured by leading independent media. [Shalom](https://shalom.kruzhok.io/), [Meduza](https://meduza.io/feature/2024/07/02/odinochestvo-vernyy-sputnik-emigratsii-osobenno-tyazhelo-v-chuzhoy-strane-prihoditsya-podrostkam)
+
+### Editorial Commissions | Holod / Cherta Media / Afisha Daily (2022)
+
+Commissioned portraiture and reportage illustrating longform interviews on social, political and health topics for major independent outlets. [Holod](https://holod.media/2022/04/23/katasonov/), [Cherta Media](https://cherta.media/interview/natalya-timakova-v-mirovoj-i-rossijskoj-politike-sushhestvuet-muzhskoj-snobizm/), [Afisha Daily](https://daily.afisha.ru/archive/gorod/people/esli-est-ad-na-zemle-eto-kashirka-roman-super-o-tom-kak-perezhit-rak-zheny/)
+
+
 ## Music Videos & Moving Image (DoP / Visual Lead)
 
 ### OQJAV — "Portwein" (2019)
@@ -99,24 +122,6 @@ Co-creator of the concept and director + DoP of the first run (first ~20 episode
 ### Investigative Video Work | Redkollegia-Nominated Projects (2019–2021)
 
 Director/DoP delivering cinematic documentary reportage with accompanying stills/backstage documentation for release. Recognition via Redkollegia nomination signals peer acknowledgement within independent journalism. [Episode 1](https://www.youtube.com/watch?v=tCYTKvzrUug), [Episode 2](https://www.youtube.com/watch?v=jyDAIBT385Y), [Episode 3](https://www.youtube.com/watch?v=X8qgovs45NU), [Episode 4](https://www.youtube.com/watch?v=lr_2ueoxKdM), [Redkollegia](https://redkollegia.org/search?q=%D0%BC%D0%B5%D0%BB%D0%B0%D0%BC%D0%B5%D0%B4), [OstWest](https://ostwest.tv/nashi-programmy/roditel-1-roditel-2-roditel-3/)
-
-## Photojournalism, Editorial & Art Documentation
-
-### Performance Art Documentation | "Груз‑300" (Katrin Nenasheva) (2018)
-
-Produced the primary photographic record of a high-profile public performance, capturing its durational and political dimension with documentary rigour. Images were used by major outlets as evidence-grade documentation. [BBC Russian](https://www.bbc.com/russian/news-45712272), [Colta](https://www.colta.ru/articles/art/20426-pozvonite-aristotelyu)
-
-### Photo Reportage | West Bank (2024)
-
-Field coverage documenting daily life under conflict and displacement, published by international platforms. Demonstrates on-the-ground documentary capability and editorial delivery. [Perspektif](https://perspektif.eu/2024/11/19/andrey-x-isgalin-stratejisi-filistinlileri-topraklarindan-yavas-yavas-surmek/), [11.be](https://11.be/en/testimonial/andrey-x-journalist-and-tiktok-phenomenon-testifies-about-ethnic-cleansing-in-western)
-
-### Participatory Documentary | Immigrant Children in Israel (Shalom / Kruzhok) (2024)
-
-Photographic storytelling created with and for migrant teenagers, combining documentary portraits with a participatory approach. Featured by leading independent media. [Shalom](https://shalom.kruzhok.io/), [Meduza](https://meduza.io/feature/2024/07/02/odinochestvo-vernyy-sputnik-emigratsii-osobenno-tyazhelo-v-chuzhoy-strane-prihoditsya-podrostkam)
-
-### Editorial Commissions | Holod / Cherta Media / Afisha Daily (2022)
-
-Commissioned portraiture and reportage illustrating longform interviews on social, political and health topics for major independent outlets. [Holod](https://holod.media/2022/04/23/katasonov/), [Cherta Media](https://cherta.media/interview/natalya-timakova-v-mirovoj-i-rossijskoj-politike-sushhestvuet-muzhskoj-snobizm/), [Afisha Daily](https://daily.afisha.ru/archive/gorod/people/esli-est-ad-na-zemle-eto-kashirka-roman-super-o-tom-kak-perezhit-rak-zheny/)
 
 ## Football Culture / Campaigns
 
@@ -158,6 +163,6 @@ Performer in the widely reported public reading at Lubimovka Festival of the wor
 
 Contributed as an invited practitioner within an international media/education programme, sharing professional visual storytelling practice with emerging creators. The second Central Asian MediaCAMP Fest gathered over 1000 media specialists in online format. [Internews Kazakhstan](https://ru.internews.kz/2020/09/21/vtoroj-tsentralnoaziatskij-festival-mediacamp-fest-proshyol-v-onlajn-formate/)
 
-### Online Course + Manual | "Focus"
+### Online Course | "Manual Focus"
 
 Created an online course and written manual translating professional photographic practice into structured learning materials, demonstrating thought leadership and educational impact.
