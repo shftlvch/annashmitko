@@ -1,0 +1,76 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+// Filter to only show h2 headings for main navigation
+const mainHeadings = headings.filter((h) => h.depth === 2);
+---
+
+<sidebar-nav class="h-fit">
+  <ul class="space-y-2 text-sm">
+    {
+      mainHeadings.map((heading) => (
+        <li>
+          <a
+            href={`#${heading.slug}`}
+            class="sidebar-link block py-1 text-gray-500 hover:text-gray-900 transition-colors"
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</sidebar-nav>
+
+<script>
+  class SidebarNav extends HTMLElement {
+    private links: NodeListOf<HTMLAnchorElement>;
+    private sections: (Element | null)[];
+    private boundUpdateActiveLink: () => void;
+
+    constructor() {
+      super();
+      this.links = this.querySelectorAll(".sidebar-link");
+      this.sections = Array.from(this.links).map((link) => {
+        const href = link.getAttribute("href");
+        return href ? document.querySelector(href) : null;
+      });
+      this.boundUpdateActiveLink = this.updateActiveLink.bind(this);
+    }
+
+    connectedCallback() {
+      window.addEventListener("scroll", this.boundUpdateActiveLink, { passive: true });
+      this.updateActiveLink();
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener("scroll", this.boundUpdateActiveLink);
+    }
+
+    updateActiveLink() {
+      const scrollPosition = window.scrollY + 100;
+
+      let activeIndex = 0;
+      this.sections.forEach((section, index) => {
+        if (section && section instanceof HTMLElement) {
+          if (section.offsetTop <= scrollPosition) {
+            activeIndex = index;
+          }
+        }
+      });
+
+      this.links.forEach((link, index) => {
+        link.classList.toggle("text-pink-700", index === activeIndex);
+        link.classList.toggle("font-semibold", index === activeIndex);
+      });
+    }
+  }
+
+  customElements.define("sidebar-nav", SidebarNav);
+</script>
