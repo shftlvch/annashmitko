@@ -1,8 +1,12 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import rehypeSlug from 'rehype-slug';
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    rehypePlugins: [rehypeSlug],
+  },
   site: 'https://annashmitko.com/',
   vite: {
     plugins: [tailwindcss()]

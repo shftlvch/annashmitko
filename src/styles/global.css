@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom theme configuration for Tailwind v4 */
 @theme {
   /* Typography */
