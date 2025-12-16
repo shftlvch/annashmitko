@@ -1,6 +1,6 @@
 I am a documentary photographer and cinematographer whose work has been exhibited and screened internationally, including at the Venice International Film Festival, Berlinale, the Israeli Knesset, and venues in Germany and the UK.
 
-I have collaborated with Kirill Serebrennikov (Berlin-based) on productions shown at major European festivals, worked with Magnum Photos as a commissioned photographer, contributed to The Lonka Project (an international Holocaust initiative with 300+ photographers from 30 countries), and photographed interviews with Billy Porter, Cynthia Nixon, and Masha Gessen for documentary work referenced in academic collections at UNC Chapel Hill and University of Minnesota.
+I have collaborated with Kirill Serebrennikov (Berlin-based) on productions shown at major European festivals, worked with Magnum Photos as a commissioned photographer, contributed to The Lonka Project (an international Holocaust initiative with 300+ photographers from 30 countries), and photographed and filmed interviews with Billy Porter, Cynthia Nixon, and Masha Gessen for documentary work referenced in academic collections at UNC Chapel Hill and University of Minnesota.
 
 My practice centres on social issues, human rights, and LGBTQ+ stories—with recent photojournalism from the West Bank and Israel.
 
