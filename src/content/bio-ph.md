@@ -1,0 +1,3 @@
+- reportage photographer
+- art/style photographer
+- art/doc filmmaker

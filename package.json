@@ -10,16 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.14.5",
+    "@astrojs/check": "^0.9.6",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.5",
     "astro-seo": "^0.8.4",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.3.3"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
   "packageManager": "bun@1.2.1",
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/bun": "latest"
   },
   "module": "index.ts",

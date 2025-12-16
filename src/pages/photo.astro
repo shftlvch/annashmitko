@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Content as Description } from "../content/description-ph.md";
+import { Content as Bio } from "../content/bio-ph.md";
+---
+
+<Layout title="Anna Shmitko">
+  <main class="container mx-auto px-3 mb-20 max-w-[640px]">
+    <header
+      class="flex flex-col md:flex-row align-center justify-between gap-1 mb-10 mt-12"
+    >
+      <a
+        class="text-4xl font-bold text-black-600 mb-2"
+        href="https://www.instagram.com/annashmitko/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><div>@annashmitko</div>
+      </a>
+      <div class="prose prose-li:list-none prose-li:p-0 prose-li:m-0 leading-5">
+        <Bio />
+      </div>
+    </header>
+    <div
+      class="prose
+  prose-h1:font-bold prose-h1:text-xl prose-h2:font-semibold prose-h2:text-lg prose-h3:font-medium prose-h3:text-base
+  prose-a:text-gray-600 prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-gray-900 prose-a:transition-colors
+  prose-img:rounded-xl prose-li:list-decimal marker:text-gray-600
+  mb-8"
+    >
+      <Description />
+    </div>
+    <div class="">
+      <div class="text-black-600">contacts:</div>
+      <div class="">
+        <a
+          class="text-pink-700 font-semibold"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="mailto:annashmitko@gmail.com">annashmitko@gmail.com</a
+        ><br />
+        <a
+          class="text-pink-700 font-semibold"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/annashmitko/">instagram</a
+        >
+      </div>
+    </div>
+  </main>
+</Layout>
