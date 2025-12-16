@@ -1,6 +1,6 @@
-I am a documentary photographer and cinematographer whose work has been exhibited and screened internationally, including at the Venice International Film Festival, Berlinale, the Israeli Knesset, and venues in Germany and the UK. 
+I am a documentary photographer and cinematographer whose work has been exhibited and screened internationally, including at the Venice International Film Festival, Berlinale, the Israeli Knesset, and venues in Germany and the UK.
 
-I have collaborated with Kirill Serebrennikov (Berlin-based) on productions shown at major European festivals, worked with Magnum Photos as a commissioned photographer, contributed to The Lonka Project (an international Holocaust initiative with 300+ photographers from 30 countries), and photographed interviews with Billy Porter, Cynthia Nixon, and Masha Gessen for documentary work referenced in academic collections at UNC Chapel Hill and University of Minnesota. 
+I have collaborated with Kirill Serebrennikov (Berlin-based) on productions shown at major European festivals, worked with Magnum Photos as a commissioned photographer, contributed to The Lonka Project (an international Holocaust initiative with 300+ photographers from 30 countries), and photographed interviews with Billy Porter, Cynthia Nixon, and Masha Gessen for documentary work referenced in academic collections at UNC Chapel Hill and University of Minnesota.
 
 My practice centres on social issues, human rights, and LGBTQ+ stories—with recent photojournalism from the West Bank and Israel.
 
@@ -86,7 +86,6 @@ Photographic storytelling created with and for migrant teenagers, combining docu
 
 Commissioned portraiture and reportage illustrating longform interviews on social, political and health topics for major independent outlets. [Holod](https://holod.media/2022/04/23/katasonov/), [Cherta Media](https://cherta.media/interview/natalya-timakova-v-mirovoj-i-rossijskoj-politike-sushhestvuet-muzhskoj-snobizm/), [Afisha Daily](https://daily.afisha.ru/archive/gorod/people/esli-est-ad-na-zemle-eto-kashirka-roman-super-o-tom-kak-perezhit-rak-zheny/)
 
-
 ## Music Videos & Moving Image (DoP / Visual Lead)
 
 ### OQJAV — "Portwein" (2019)
@@ -155,7 +154,7 @@ Performer in a socially engaged theatre context, contributing to a project shown
 
 ### Finist Yasny Sokol — Public Reading (Evgenia Berkovich) (2019)
 
-Performer in the widely reported public reading at Lubimovka Festival of the work that later became a Golden Mask–winning production (2020). After the award, Berkovich and playwright Svetlana Petriychuk were arrested and imprisoned on "justifying terrorism" charges linked to the same play—turning this appearance into part of an internationally documented artistic‑freedom case. [Video 1](https://www.youtube.com/watch?v=Y8yfxAo1gJs), [Video 2](https://www.youtube.com/watch?v=ZjiHrh-D438), [Fontanka](https://www.fontanka.ru/2023/05/05/72278702/), [Wikipedia](https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%BD%D0%B8%D1%81%D1%82_%D1%8F%D1%81%D0%BD%D1%8B%D0%B9_%D1%81%D0%BE%D0%BA%D0%BE%D0%BB_(%D0%BF%D1%8C%D0%B5%D1%81%D0%B0)), [Lubimovka Festival](https://www.facebook.com/festival.lubimovka/photos/a.2397209933732668/2397307640389564/?type=3)
+Performer in the widely reported public reading at Lubimovka Festival of the work that later became a Golden Mask–winning production (2020). After the award, Berkovich and playwright Svetlana Petriychuk were arrested and imprisoned on "justifying terrorism" charges linked to the same play—turning this appearance into part of an internationally documented artistic‑freedom case. [Video 1](https://www.youtube.com/watch?v=Y8yfxAo1gJs), [Video 2](https://www.youtube.com/watch?v=ZjiHrh-D438), [Fontanka](https://www.fontanka.ru/2023/05/05/72278702/), [Wikipedia](<https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%BD%D0%B8%D1%81%D1%82_%D1%8F%D1%81%D0%BD%D1%8B%D0%B9_%D1%81%D0%BE%D0%BA%D0%BE%D0%BB_(%D0%BF%D1%8C%D0%B5%D1%81%D0%B0)>), [Lubimovka Festival](https://www.facebook.com/festival.lubimovka/photos/a.2397209933732668/2397307640389564/?type=3)
 
 ## Education
 
@@ -165,4 +164,4 @@ Contributed as an invited practitioner within an international media/education p
 
 ### Online Course | "Manual Focus"
 
-Created an online course and written manual translating professional photographic practice into structured learning materials, demonstrating thought leadership and educational impact.
+Created an online course and written manual translating professional photographic practice into structured learning materials, demonstrating thought leadership and educational impact. [Course website](https://annashmitko.com/course/)
