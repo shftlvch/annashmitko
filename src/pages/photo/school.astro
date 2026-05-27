@@ -1,23 +1,50 @@
 ---
 import { Image, getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import classroom01 from './school/_images/classroom-01.jpg';
-import classroom02 from './school/_images/classroom-02.jpg';
-import classroom03 from './school/_images/classroom-03.jpg';
-import science01 from './school/_images/science-01.jpg';
-import science02 from './school/_images/science-02.jpg';
-import science03 from './school/_images/science-03.jpg';
-import schoolDay01 from './school/_images/school-day-01.jpg';
-import schoolDay02 from './school/_images/school-day-02.jpg';
-import schoolDay03 from './school/_images/school-day-03.jpg';
-import schoolDay04 from './school/_images/school-day-04.jpg';
-import schoolDay05 from './school/_images/school-day-05.jpg';
-import schoolPortrait01 from './school/_images/school-portrait-01.jpg';
-import students01 from './school/_images/students-01.jpg';
-import students02 from './school/_images/students-02.jpg';
-import students03 from './school/_images/students-03.jpg';
+import basketballPortrait from './school/_images/elifelet/basketball-portrait.jpg';
+import boysOnStairs from './school/_images/elifelet/boys-on-stairs.jpg';
+import courtyardFootball from './school/_images/elifelet/courtyard-football.jpg';
+import courtyardSoccer from './school/_images/elifelet/courtyard-soccer.jpg';
+import hallwayBasketball from './school/_images/elifelet/hallway-basketball.jpg';
+import heartHandsPortrait from './school/_images/elifelet/heart-hands-portrait.jpg';
+import playhousePeekPortrait from './school/_images/elifelet/playhouse-peek-portrait.jpg';
+import princessCostumePortrait from './school/_images/elifelet/princess-costume-portrait.jpg';
+import puppetPlay from './school/_images/elifelet/puppet-play.jpg';
+import slimeCupPortrait from './school/_images/elifelet/slime-cup-portrait.jpg';
+import spaceRangerHallway from './school/_images/elifelet/space-ranger-hallway.jpg';
+import workbookStudy from './school/_images/elifelet/workbook-study.jpg';
+import derevoBarefootLog from './school/_images/derevo/derevo-barefoot-log.jpg';
+import derevoBasketballPortrait from './school/_images/derevo/derevo-basketball-portrait.jpg';
+import derevoBonfireCircle from './school/_images/derevo/derevo-bonfire-circle.jpg';
+import derevoCourtyardSoccer from './school/_images/derevo/derevo-courtyard-soccer.jpg';
+import derevoDoughBraidHands from './school/_images/derevo/derevo-dough-braid-hands.jpg';
+import derevoGardenSnackCircle from './school/_images/derevo/derevo-garden-snack-circle.jpg';
+import derevoHallwayBasketball from './school/_images/derevo/derevo-hallway-basketball.jpg';
+import derevoHeartHandsPortrait from './school/_images/derevo/derevo-heart-hands-portrait.jpg';
+import derevoHoopBallPortrait from './school/_images/derevo/derevo-hoop-ball-portrait.jpg';
+import derevoPaintingWorkshop from './school/_images/derevo/derevo-painting-workshop.jpg';
+import derevoPrincessCostumePortrait from './school/_images/derevo/derevo-princess-costume-portrait.jpg';
+import derevoRibbonRun from './school/_images/derevo/derevo-ribbon-run.jpg';
+import derevoSpaceRangerHallway from './school/_images/derevo/derevo-space-ranger-hallway.jpg';
+import derevoStarLightsPortrait from './school/_images/derevo/derevo-star-lights-portrait.jpg';
+import derevoWaterDropsPortrait from './school/_images/derevo/derevo-water-drops-portrait.jpg';
+import classroom01 from './school/_images/school-days/classroom-01.jpg';
+import classroom02 from './school/_images/school-days/classroom-02.jpg';
+import classroom03 from './school/_images/school-days/classroom-03.jpg';
+import science01 from './school/_images/school-days/science-01.jpg';
+import science02 from './school/_images/school-days/science-02.jpg';
+import science03 from './school/_images/school-days/science-03.jpg';
+import schoolDay01 from './school/_images/school-days/school-day-01.jpg';
+import schoolDay02 from './school/_images/school-days/school-day-02.jpg';
+import schoolDay03 from './school/_images/school-days/school-day-03.jpg';
+import schoolDay04 from './school/_images/school-days/school-day-04.jpg';
+import schoolDay05 from './school/_images/school-days/school-day-05.jpg';
+import schoolPortrait01 from './school/_images/school-days/school-portrait-01.jpg';
+import students01 from './school/_images/school-days/students-01.jpg';
+import students02 from './school/_images/school-days/students-02.jpg';
+import students03 from './school/_images/school-days/students-03.jpg';
 
-const gallery = [
+const schoolGallery = [
   {
     image: schoolDay02,
     alt: 'Students gathered during a school day',
@@ -47,10 +74,69 @@ const gallery = [
   { image: students03, alt: 'Students outside the classroom', class: 'md:col-span-5 md:col-start-8 md:mt-18' },
 ];
 
-const galleryItems = await Promise.all(
-  gallery.map(async (item) => ({
-    ...item,
-    lightbox: await getImage({ src: item.image, width: 1800, format: 'webp', quality: 82 }),
+const elifeletGallery = [
+  { image: slimeCupPortrait, alt: 'Child holding a slime cup over one eye', class: 'md:col-span-5 md:col-start-1 md:mt-8' },
+  { image: playhousePeekPortrait, alt: 'Child peeking through a wooden playhouse window', class: 'md:col-span-3 md:col-start-7 md:mt-2' },
+  { image: boysOnStairs, alt: 'Four boys sitting together on school steps', class: 'md:col-span-4 md:col-start-10 md:mt-16' },
+  { image: courtyardFootball, alt: 'Children playing football in the courtyard', class: 'md:col-span-4 md:col-start-2 md:mt-20' },
+  { image: puppetPlay, alt: 'Child smiling with classroom puppets', class: 'md:col-span-5 md:col-start-7 md:mt-8' },
+  { image: workbookStudy, alt: 'Two students working through a workbook', class: 'md:col-span-7 md:col-start-1 md:mt-14' },
+  { image: hallwayBasketball, alt: 'Students with a basketball in a school hallway', class: 'md:col-span-4 md:col-start-9 md:mt-14' },
+  { image: courtyardSoccer, alt: 'Child playing soccer alone in the courtyard', class: 'md:col-span-4 md:col-start-2 md:mt-18' },
+  { image: basketballPortrait, alt: 'Student holding a basketball in the courtyard', class: 'md:col-span-4 md:col-start-7 md:mt-8' },
+  { image: spaceRangerHallway, alt: 'Child running through a hallway in a space ranger costume', class: 'md:col-span-5 md:col-start-1 md:mt-20' },
+  { image: princessCostumePortrait, alt: 'Child posing with a fan and parasol in a princess costume', class: 'md:col-span-3 md:col-start-8 md:mt-16' },
+  { image: heartHandsPortrait, alt: 'Child smiling through hands shaped like a heart', class: 'md:col-span-5 md:col-start-7 md:mt-18' },
+];
+
+const derevoGallery = [
+  { image: derevoPaintingWorkshop, alt: 'Black-and-white photograph of a child painting during an outdoor workshop', class: 'md:col-span-5 md:col-start-1 md:mt-8' },
+  { image: derevoBarefootLog, alt: 'Bare feet balancing on a log in the grass', class: 'md:col-span-3 md:col-start-7 md:mt-2' },
+  { image: derevoHoopBallPortrait, alt: 'Black-and-white portrait of a child beside a ball in the grass', class: 'md:col-span-4 md:col-start-10 md:mt-16' },
+  { image: derevoRibbonRun, alt: 'Adult and child running through hanging ribbons outdoors', class: 'md:col-span-5 md:col-start-2 md:mt-20' },
+  { image: derevoStarLightsPortrait, alt: 'Child looking at glowing star lights', class: 'md:col-span-4 md:col-start-8 md:mt-8' },
+  { image: derevoBonfireCircle, alt: 'People holding hands in a circle around a bonfire at night', class: 'md:col-span-7 md:col-start-1 md:mt-14' },
+  { image: derevoGardenSnackCircle, alt: 'Black-and-white photograph of children and an adult sitting together in a garden', class: 'md:col-span-4 md:col-start-9 md:mt-16' },
+  { image: derevoWaterDropsPortrait, alt: 'Black-and-white portrait of a child playing with water drops', class: 'md:col-span-5 md:col-start-2 md:mt-18' },
+  { image: derevoDoughBraidHands, alt: 'Hands braiding dough on a table', class: 'md:col-span-4 md:col-start-7 md:mt-8' },
+  { image: derevoHallwayBasketball, alt: 'Children with a basketball in a school hallway', class: 'md:col-span-5 md:col-start-1 md:mt-20' },
+  { image: derevoCourtyardSoccer, alt: 'Child playing soccer alone in a courtyard', class: 'md:col-span-4 md:col-start-8 md:mt-10' },
+  { image: derevoBasketballPortrait, alt: 'Student holding a basketball in a courtyard', class: 'md:col-span-4 md:col-start-2 md:mt-18' },
+  { image: derevoSpaceRangerHallway, alt: 'Child running through a hallway in a space ranger costume', class: 'md:col-span-5 md:col-start-7 md:mt-8' },
+  { image: derevoPrincessCostumePortrait, alt: 'Child posing with a fan and parasol in a princess costume', class: 'md:col-span-3 md:col-start-1 md:mt-20' },
+  { image: derevoHeartHandsPortrait, alt: 'Child smiling through hands shaped like a heart', class: 'md:col-span-5 md:col-start-7 md:mt-18' },
+];
+
+const sections = [
+  {
+    title: 'School and outdoor activities',
+    subtitle: 'A documentary sequence from everyday school life, moving between classrooms, lessons, breaks, and outdoor activities. The photographs follow children through structured learning and unscripted moments of play, attention, fatigue, and movement.',
+    items: schoolGallery,
+  },
+  {
+    title: 'Elifelet: children of asylum seekers',
+    subtitle: 'Elifelet is an Israeli nonprofit supporting children of asylum seekers and refugees in south Tel Aviv, especially young children from Eritrean and Sudanese communities. Its work is closer to early-childhood care, after-school support, welfare, and emergency aid than to a conventional school system. These photographs look at children in the learning and care spaces created around that need.',
+    items: elifeletGallery,
+  },
+  {
+    title: 'Derevo: family camp',
+    subtitle: 'A family camp for Ukrainian children with special needs, supported through an NGO setting. The section follows days built around outdoor workshops, play, shared meals, handmade objects, and evening rituals, with attention to the children and families moving through the camp together.',
+    items: derevoGallery,
+  },
+];
+
+let lightboxIndex = 0;
+
+const gallerySections = await Promise.all(
+  sections.map(async (section) => ({
+    ...section,
+    items: await Promise.all(
+      section.items.map(async (item) => ({
+        ...item,
+        lightboxIndex: lightboxIndex++,
+        lightbox: await getImage({ src: item.image, width: 1800, format: 'webp', quality: 82 }),
+      })),
+    ),
   })),
 );
 ---
@@ -74,43 +160,43 @@ const galleryItems = await Promise.all(
       </header>
 
       <portfolio-gallery>
-        <section class="pt-28 md:pt-44">
-          <div class="grid items-start gap-y-9 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
-            <div class="hidden text-[13px] font-semibold leading-tight text-black md:col-span-1 md:block">
-              <a
-                href="/photo"
-                class="sticky top-6 block transition-colors hover:text-gray-500"
-              >
-                photo<br />index
-              </a>
-            </div>
-            {
-              galleryItems.map((item, index) => (
-                <figure class={item.class}>
-                  <button
-                    type="button"
-                    data-lightbox-index={index}
-                    data-lightbox-src={item.lightbox.src}
-                    data-lightbox-alt={item.alt}
-                    aria-label={`Open image ${index + 1}`}
-                    class="block w-full cursor-zoom-in text-left"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      widths={[360, 640, 900]}
-                      sizes={item.class?.includes('col-span-8') || item.class?.includes('col-span-7') ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 40vw, 100vw'}
-                      format="webp"
-                      quality={72}
-                      loading={index < 3 ? 'eager' : 'lazy'}
-                      class="h-auto w-full"
-                    />
-                  </button>
-                </figure>
-              ))
-            }
-          </div>
-        </section>
+        {
+          gallerySections.map((section, sectionIndex) => (
+            <section class={sectionIndex === 0 ? 'pt-28 md:pt-44' : 'pt-24 md:pt-40'}>
+              <div class="grid gap-4 text-sm font-semibold leading-tight text-black md:grid-cols-12 md:text-[13px]">
+                <div class="md:col-span-2">{String(sectionIndex + 1).padStart(2, '0')}</div>
+                <h2 class="md:col-span-3">{section.title}</h2>
+                <p class="max-w-sm md:col-span-3 md:col-start-7">{section.subtitle}</p>
+              </div>
+
+              <div class="mt-12 grid items-start gap-y-9 md:mt-16 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
+                {section.items.map((item) => (
+                  <figure class={item.class}>
+                    <button
+                      type="button"
+                      data-lightbox-index={item.lightboxIndex}
+                      data-lightbox-src={item.lightbox.src}
+                      data-lightbox-alt={item.alt}
+                      aria-label={`Open image ${item.lightboxIndex + 1}`}
+                      class="block w-full cursor-zoom-in text-left"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        widths={[360, 640, 900]}
+                        sizes={item.class?.includes('col-span-8') || item.class?.includes('col-span-7') ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 40vw, 100vw'}
+                        format="webp"
+                        quality={72}
+                        loading={item.lightboxIndex < 3 ? 'eager' : 'lazy'}
+                        class="h-auto w-full"
+                      />
+                    </button>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          ))
+        }
 
         <div
           data-lightbox
