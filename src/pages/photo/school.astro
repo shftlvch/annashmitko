@@ -200,30 +200,30 @@ const gallerySections = await Promise.all(
 
         <div
           data-lightbox
-          class="fixed inset-0 z-50 hidden bg-stone-100 px-4 py-5 text-black md:px-8 md:py-6"
+          class="fixed inset-0 z-50 hidden h-svh w-screen bg-black/95 px-4 py-4 text-white backdrop-blur-sm md:px-8 md:py-6"
           role="dialog"
           aria-modal="true"
           aria-hidden="true"
         >
-          <div class="container mx-auto flex h-full max-w-7xl flex-col">
-            <div class="grid gap-4 text-sm font-semibold leading-tight md:grid-cols-12 md:text-[13px]">
-              <div class="md:col-span-2">Anna Shmitko</div>
-              <div class="md:col-span-3">School photography</div>
+          <div class="flex h-full min-h-0 flex-col">
+            <div class="relative z-20 grid grid-cols-[1fr_auto] items-center gap-3 text-sm font-semibold leading-tight text-white/90 md:grid-cols-12 md:text-[13px]">
+              <div class="hidden md:col-span-2 md:block">Anna Shmitko</div>
+              <div class="hidden md:col-span-3 md:block">School photography</div>
               <div class="md:col-span-2 md:col-start-7" data-lightbox-counter></div>
               <button
                 type="button"
                 data-lightbox-close
-                class="w-fit text-left transition-colors hover:text-gray-500 md:col-span-2 md:col-start-11 md:justify-self-end"
+                class="min-h-11 min-w-16 border border-white/30 px-4 text-center transition-colors hover:border-white hover:text-white active:bg-white active:text-black md:col-span-2 md:col-start-11 md:justify-self-end"
               >
                 close
               </button>
             </div>
 
-            <div class="relative flex min-h-0 flex-1 items-center justify-center py-8 md:py-12">
+            <div data-lightbox-stage class="relative -mx-4 flex min-h-0 flex-1 touch-pan-y items-center justify-center px-14 py-4 md:-mx-8 md:px-24 md:py-8">
               <button
                 type="button"
                 data-lightbox-prev
-                class="absolute left-0 top-1/2 z-10 -translate-y-1/2 text-3xl leading-none transition-colors hover:text-gray-500 md:text-5xl"
+                class="absolute inset-y-0 left-0 z-10 flex w-14 items-center justify-center bg-black/20 text-4xl leading-none text-white/85 transition-colors hover:text-white active:bg-white active:text-black md:w-24 md:text-6xl"
                 aria-label="Previous image"
               >
                 &lt;-
@@ -231,17 +231,20 @@ const gallerySections = await Promise.all(
               <img
                 data-lightbox-image
                 alt=""
-                class="max-h-full max-w-full object-contain"
+                draggable="false"
+                class="max-h-[calc(100svh-8rem)] max-w-full select-none object-contain md:max-h-[calc(100svh-7rem)]"
               />
               <button
                 type="button"
                 data-lightbox-next
-                class="absolute right-0 top-1/2 z-10 -translate-y-1/2 text-3xl leading-none transition-colors hover:text-gray-500 md:text-5xl"
+                class="absolute inset-y-0 right-0 z-10 flex w-14 items-center justify-center bg-black/20 text-4xl leading-none text-white/85 transition-colors hover:text-white active:bg-white active:text-black md:w-24 md:text-6xl"
                 aria-label="Next image"
               >
                 -&gt;
               </button>
             </div>
+
+            <div class="pb-1 text-center text-xs font-semibold text-white/45 md:hidden">swipe or tap arrows</div>
           </div>
         </div>
       </portfolio-gallery>
@@ -253,6 +256,7 @@ const gallerySections = await Promise.all(
   class PortfolioGallery extends HTMLElement {
     private triggers: HTMLButtonElement[] = [];
     private lightbox: HTMLElement | null = null;
+    private stage: HTMLElement | null = null;
     private image: HTMLImageElement | null = null;
     private counter: HTMLElement | null = null;
     private closeButton: HTMLButtonElement | null = null;
@@ -260,11 +264,18 @@ const gallerySections = await Promise.all(
     private nextButton: HTMLButtonElement | null = null;
     private index = 0;
     private previousBodyOverflow = '';
+    private previousDocumentOverflow = '';
+    private touchStartX = 0;
+    private touchStartY = 0;
+    private touchStartTime = 0;
     private boundKeydown = this.handleKeydown.bind(this);
+    private boundTouchStart = this.handleTouchStart.bind(this);
+    private boundTouchEnd = this.handleTouchEnd.bind(this);
 
     connectedCallback() {
       this.triggers = Array.from(this.querySelectorAll('[data-lightbox-index]'));
       this.lightbox = this.querySelector('[data-lightbox]');
+      this.stage = this.querySelector('[data-lightbox-stage]');
       this.image = this.querySelector('[data-lightbox-image]');
       this.counter = this.querySelector('[data-lightbox-counter]');
       this.closeButton = this.querySelector('[data-lightbox-close]');
@@ -280,11 +291,16 @@ const gallerySections = await Promise.all(
       this.closeButton?.addEventListener('click', () => this.close());
       this.prevButton?.addEventListener('click', () => this.showPrevious());
       this.nextButton?.addEventListener('click', () => this.showNext());
+      this.stage?.addEventListener('touchstart', this.boundTouchStart, { passive: true });
+      this.stage?.addEventListener('touchend', this.boundTouchEnd, { passive: true });
     }
 
     disconnectedCallback() {
       document.removeEventListener('keydown', this.boundKeydown);
       document.body.style.overflow = this.previousBodyOverflow;
+      document.documentElement.style.overflow = this.previousDocumentOverflow;
+      this.stage?.removeEventListener('touchstart', this.boundTouchStart);
+      this.stage?.removeEventListener('touchend', this.boundTouchEnd);
     }
 
     private open(index: number) {
@@ -293,7 +309,9 @@ const gallerySections = await Promise.all(
       this.lightbox?.classList.remove('hidden');
       this.lightbox?.setAttribute('aria-hidden', 'false');
       this.previousBodyOverflow = document.body.style.overflow;
+      this.previousDocumentOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       document.addEventListener('keydown', this.boundKeydown);
       this.closeButton?.focus();
     }
@@ -302,6 +320,7 @@ const gallerySections = await Promise.all(
       this.lightbox?.classList.add('hidden');
       this.lightbox?.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = this.previousBodyOverflow;
+      document.documentElement.style.overflow = this.previousDocumentOverflow;
       document.removeEventListener('keydown', this.boundKeydown);
       this.triggers[this.index]?.focus();
     }
@@ -343,6 +362,42 @@ const gallerySections = await Promise.all(
       if (event.key === 'ArrowRight') {
         this.showNext();
       }
+    }
+
+    private handleTouchStart(event: TouchEvent) {
+      const touch = event.changedTouches[0];
+
+      if (!touch) {
+        return;
+      }
+
+      this.touchStartX = touch.clientX;
+      this.touchStartY = touch.clientY;
+      this.touchStartTime = Date.now();
+    }
+
+    private handleTouchEnd(event: TouchEvent) {
+      const touch = event.changedTouches[0];
+
+      if (!touch) {
+        return;
+      }
+
+      const deltaX = touch.clientX - this.touchStartX;
+      const deltaY = touch.clientY - this.touchStartY;
+      const isHorizontalSwipe = Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+      const isQuickSwipe = Date.now() - this.touchStartTime < 900;
+
+      if (!isHorizontalSwipe || !isQuickSwipe) {
+        return;
+      }
+
+      if (deltaX > 0) {
+        this.showPrevious();
+        return;
+      }
+
+      this.showNext();
     }
   }
 
