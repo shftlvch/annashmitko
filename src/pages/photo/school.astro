@@ -21,54 +21,60 @@ const gallery = [
   {
     image: schoolDay02,
     alt: 'Students gathered during a school day',
-    class: 'md:col-span-7',
+    class: 'md:col-span-4 md:col-start-1 md:mt-10',
   },
-  { image: science01, alt: 'Children working during a science class', class: 'md:col-span-4 md:mt-16' },
-  { image: classroom01, alt: 'A quiet classroom moment', class: 'md:col-span-5 md:col-start-2' },
-  { image: students02, alt: 'Students in conversation at school', class: 'md:col-span-6' },
-  { image: schoolDay04, alt: 'Child focused during a lesson', class: 'md:col-span-4 md:col-start-8 md:-mt-10' },
+  { image: science01, alt: 'Children working during a science class', class: 'md:col-span-3 md:col-start-6' },
+  { image: classroom01, alt: 'A quiet classroom moment', class: 'md:col-span-4 md:col-start-10 md:mt-20' },
+  { image: students02, alt: 'Students in conversation at school', class: 'md:col-span-5 md:col-start-3 md:mt-28' },
+  { image: schoolDay04, alt: 'Child focused during a lesson', class: 'md:col-span-3 md:col-start-9 md:mt-8' },
   {
     image: classroom03,
     alt: 'Students and teacher in a classroom',
-    class: 'md:col-span-8 md:col-start-3',
+    class: 'md:col-span-8 md:col-start-1 md:mt-16',
   },
-  { image: science02, alt: 'Hands-on school science activity', class: 'md:col-span-4' },
-  { image: schoolPortrait01, alt: 'Portrait of a student', class: 'md:col-span-3 md:col-start-6 md:mt-20' },
-  { image: classroom02, alt: 'Everyday school classroom scene', class: 'md:col-span-5 md:col-start-2' },
-  { image: schoolDay01, alt: 'Students walking through school', class: 'md:col-span-6' },
+  { image: science02, alt: 'Hands-on school science activity', class: 'md:col-span-3 md:col-start-10 md:-mt-12' },
+  { image: schoolPortrait01, alt: 'Portrait of a student', class: 'md:col-span-3 md:col-start-2 md:mt-36' },
+  { image: classroom02, alt: 'Everyday school classroom scene', class: 'md:col-span-5 md:col-start-6 md:mt-6' },
+  { image: schoolDay01, alt: 'Students walking through school', class: 'md:col-span-4 md:col-start-9 md:mt-24' },
   {
     image: students01,
     alt: 'Group of students during school activities',
-    class: 'md:col-span-7 md:col-start-5',
+    class: 'md:col-span-7 md:col-start-1 md:mt-10',
   },
-  { image: science03, alt: 'Student experimenting in class', class: 'md:col-span-4 md:-mt-16' },
-  { image: schoolDay03, alt: 'School day documentary photograph', class: 'md:col-span-5 md:col-start-3' },
-  { image: schoolDay05, alt: 'Student portrait during school day', class: 'md:col-span-4 md:mt-12' },
-  { image: students03, alt: 'Students outside the classroom', class: 'md:col-span-7 md:col-start-4' },
+  { image: science03, alt: 'Student experimenting in class', class: 'md:col-span-4 md:col-start-9 md:mt-36' },
+  { image: schoolDay03, alt: 'School day documentary photograph', class: 'md:col-span-4 md:col-start-2 md:mt-24' },
+  { image: schoolDay05, alt: 'Student portrait during school day', class: 'md:col-span-3 md:col-start-7 md:mt-4' },
+  { image: students03, alt: 'Students outside the classroom', class: 'md:col-span-5 md:col-start-8 md:mt-28' },
 ];
 ---
 
 <Layout title="School Photography — Anna Shmitko">
-  <main class="min-h-screen px-3 py-10 md:px-8 md:py-16">
-    <section class="mx-auto max-w-6xl">
-      <header class="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
-        <div class="md:col-span-4">
+  <main class="min-h-screen px-4 py-5 md:px-8 md:py-6">
+    <header class="grid gap-4 text-[13px] font-semibold leading-tight text-black md:grid-cols-12">
+      <div class="md:col-span-2">
+        <a href="/photo" class="transition-colors hover:text-gray-500">Anna Shmitko</a>
+      </div>
+      <div class="md:col-span-3">
+        <h1>School photography</h1>
+      </div>
+      <p class="max-w-sm md:col-span-3 md:col-start-7">
+        Documentary photographs of school life, lessons, pauses, experiments, and movement.
+      </p>
+      <div class="hidden text-right md:col-span-2 md:col-start-11 md:block">
+        / photo archive
+      </div>
+    </header>
+
+    <section class="pt-36 md:pt-56">
+      <div class="grid items-start gap-y-10 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
+        <div class="hidden text-[13px] font-semibold leading-tight text-black md:col-span-1 md:block">
           <a
             href="/photo"
-            class="text-sm text-gray-500 underline underline-offset-2 transition-colors hover:text-gray-900"
+            class="sticky top-6 block transition-colors hover:text-gray-500"
           >
-            photography
+            photo<br />index
           </a>
         </div>
-        <div class="md:col-span-7 md:col-start-6">
-          <h1 class="text-4xl font-bold text-black md:text-6xl">School photography</h1>
-          <p class="mt-5 max-w-xl text-base leading-7 text-gray-700">
-            A documentary series about school life: lessons, pauses, experiments, movement, and the quiet moments between them.
-          </p>
-        </div>
-      </header>
-
-      <div class="grid items-start gap-y-6 md:grid-cols-12 md:gap-x-6 md:gap-y-10">
         {
           gallery.map((item, index) => (
             <figure class={item.class}>
