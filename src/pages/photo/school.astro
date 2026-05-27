@@ -200,7 +200,7 @@ const gallerySections = await Promise.all(
 
         <div
           data-lightbox
-          class="fixed inset-0 z-50 hidden h-svh w-screen bg-black/95 px-4 py-4 text-white backdrop-blur-sm md:px-8 md:py-6"
+          class="fixed inset-0 z-50 hidden overflow-hidden overscroll-contain bg-black px-4 py-4 text-white md:px-8 md:py-6"
           role="dialog"
           aria-modal="true"
           aria-hidden="true"
@@ -219,7 +219,7 @@ const gallerySections = await Promise.all(
               </button>
             </div>
 
-            <div data-lightbox-stage class="relative -mx-4 flex min-h-0 flex-1 touch-pan-y items-center justify-center px-14 py-4 md:-mx-8 md:px-24 md:py-8">
+            <div data-lightbox-stage class="relative -mx-4 flex min-h-0 flex-1 touch-none items-center justify-center px-14 py-4 md:-mx-8 md:px-24 md:py-8">
               <button
                 type="button"
                 data-lightbox-prev
@@ -232,7 +232,7 @@ const gallerySections = await Promise.all(
                 data-lightbox-image
                 alt=""
                 draggable="false"
-                class="max-h-[calc(100svh-8rem)] max-w-full select-none object-contain md:max-h-[calc(100svh-7rem)]"
+                class="max-h-full max-w-full select-none object-contain"
               />
               <button
                 type="button"
@@ -263,8 +263,16 @@ const gallerySections = await Promise.all(
     private prevButton: HTMLButtonElement | null = null;
     private nextButton: HTMLButtonElement | null = null;
     private index = 0;
+    private isOpen = false;
     private previousBodyOverflow = '';
+    private previousBodyPosition = '';
+    private previousBodyTop = '';
+    private previousBodyWidth = '';
     private previousDocumentOverflow = '';
+    private previousThemeColor: string | null = null;
+    private themeColorMeta: HTMLMetaElement | null = null;
+    private themeColorCreated = false;
+    private scrollY = 0;
     private touchStartX = 0;
     private touchStartY = 0;
     private touchStartTime = 0;
@@ -297,8 +305,12 @@ const gallerySections = await Promise.all(
 
     disconnectedCallback() {
       document.removeEventListener('keydown', this.boundKeydown);
-      document.body.style.overflow = this.previousBodyOverflow;
-      document.documentElement.style.overflow = this.previousDocumentOverflow;
+
+      if (this.isOpen) {
+        this.unlockPageScroll();
+        this.restoreThemeColor();
+      }
+
       this.stage?.removeEventListener('touchstart', this.boundTouchStart);
       this.stage?.removeEventListener('touchend', this.boundTouchEnd);
     }
@@ -306,21 +318,30 @@ const gallerySections = await Promise.all(
     private open(index: number) {
       this.index = index;
       this.render();
+
+      if (this.isOpen) {
+        return;
+      }
+
+      this.isOpen = true;
       this.lightbox?.classList.remove('hidden');
       this.lightbox?.setAttribute('aria-hidden', 'false');
-      this.previousBodyOverflow = document.body.style.overflow;
-      this.previousDocumentOverflow = document.documentElement.style.overflow;
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+      this.lockPageScroll();
+      this.setThemeColor('#000000');
       document.addEventListener('keydown', this.boundKeydown);
       this.closeButton?.focus();
     }
 
     private close() {
+      if (!this.isOpen) {
+        return;
+      }
+
+      this.isOpen = false;
       this.lightbox?.classList.add('hidden');
       this.lightbox?.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = this.previousBodyOverflow;
-      document.documentElement.style.overflow = this.previousDocumentOverflow;
+      this.unlockPageScroll();
+      this.restoreThemeColor();
       document.removeEventListener('keydown', this.boundKeydown);
       this.triggers[this.index]?.focus();
     }
@@ -399,9 +420,90 @@ const gallerySections = await Promise.all(
 
       this.showNext();
     }
+
+    private lockPageScroll() {
+      this.scrollY = window.scrollY;
+      this.previousBodyOverflow = document.body.style.overflow;
+      this.previousBodyPosition = document.body.style.position;
+      this.previousBodyTop = document.body.style.top;
+      this.previousBodyWidth = document.body.style.width;
+      this.previousDocumentOverflow = document.documentElement.style.overflow;
+
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${this.scrollY}px`;
+      document.body.style.width = '100%';
+    }
+
+    private unlockPageScroll() {
+      document.body.style.overflow = this.previousBodyOverflow;
+      document.body.style.position = this.previousBodyPosition;
+      document.body.style.top = this.previousBodyTop;
+      document.body.style.width = this.previousBodyWidth;
+      document.documentElement.style.overflow = this.previousDocumentOverflow;
+
+      window.scrollTo(0, this.scrollY);
+    }
+
+    private setThemeColor(color: string) {
+      let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+
+      this.themeColorCreated = !meta;
+
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'theme-color';
+        document.head.append(meta);
+      }
+
+      this.themeColorMeta = meta;
+      this.previousThemeColor = meta.getAttribute('content');
+      meta.setAttribute('content', color);
+    }
+
+    private restoreThemeColor() {
+      if (!this.themeColorMeta) {
+        return;
+      }
+
+      if (this.themeColorCreated) {
+        this.themeColorMeta.remove();
+      } else if (this.previousThemeColor) {
+        this.themeColorMeta.setAttribute('content', this.previousThemeColor);
+      } else {
+        this.themeColorMeta.removeAttribute('content');
+      }
+
+      this.themeColorMeta = null;
+      this.previousThemeColor = null;
+      this.themeColorCreated = false;
+    }
   }
 
   if (!customElements.get('portfolio-gallery')) {
     customElements.define('portfolio-gallery', PortfolioGallery);
   }
 </script>
+
+<style>
+  [data-lightbox] {
+    color-scheme: dark;
+  }
+
+  @supports (padding: max(0px)) {
+    [data-lightbox] {
+      padding-top: max(1rem, env(safe-area-inset-top));
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+  }
+
+  @media (min-width: 768px) {
+    @supports (padding: max(0px)) {
+      [data-lightbox] {
+        padding-top: max(1.5rem, env(safe-area-inset-top));
+        padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+      }
+    }
+  }
+</style>
