@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import classroom01 from './school/_images/classroom-01.jpg';
+import classroom02 from './school/_images/classroom-02.jpg';
+import classroom03 from './school/_images/classroom-03.jpg';
+import science01 from './school/_images/science-01.jpg';
+import science02 from './school/_images/science-02.jpg';
+import science03 from './school/_images/science-03.jpg';
+import schoolDay01 from './school/_images/school-day-01.jpg';
+import schoolDay02 from './school/_images/school-day-02.jpg';
+import schoolDay03 from './school/_images/school-day-03.jpg';
+import schoolDay04 from './school/_images/school-day-04.jpg';
+import schoolDay05 from './school/_images/school-day-05.jpg';
+import schoolPortrait01 from './school/_images/school-portrait-01.jpg';
+import students01 from './school/_images/students-01.jpg';
+import students02 from './school/_images/students-02.jpg';
+import students03 from './school/_images/students-03.jpg';
+
+const gallery = [
+  {
+    image: schoolDay02,
+    alt: 'Students gathered during a school day',
+    class: 'md:col-span-7',
+  },
+  { image: science01, alt: 'Children working during a science class', class: 'md:col-span-4 md:mt-16' },
+  { image: classroom01, alt: 'A quiet classroom moment', class: 'md:col-span-5 md:col-start-2' },
+  { image: students02, alt: 'Students in conversation at school', class: 'md:col-span-6' },
+  { image: schoolDay04, alt: 'Child focused during a lesson', class: 'md:col-span-4 md:col-start-8 md:-mt-10' },
+  {
+    image: classroom03,
+    alt: 'Students and teacher in a classroom',
+    class: 'md:col-span-8 md:col-start-3',
+  },
+  { image: science02, alt: 'Hands-on school science activity', class: 'md:col-span-4' },
+  { image: schoolPortrait01, alt: 'Portrait of a student', class: 'md:col-span-3 md:col-start-6 md:mt-20' },
+  { image: classroom02, alt: 'Everyday school classroom scene', class: 'md:col-span-5 md:col-start-2' },
+  { image: schoolDay01, alt: 'Students walking through school', class: 'md:col-span-6' },
+  {
+    image: students01,
+    alt: 'Group of students during school activities',
+    class: 'md:col-span-7 md:col-start-5',
+  },
+  { image: science03, alt: 'Student experimenting in class', class: 'md:col-span-4 md:-mt-16' },
+  { image: schoolDay03, alt: 'School day documentary photograph', class: 'md:col-span-5 md:col-start-3' },
+  { image: schoolDay05, alt: 'Student portrait during school day', class: 'md:col-span-4 md:mt-12' },
+  { image: students03, alt: 'Students outside the classroom', class: 'md:col-span-7 md:col-start-4' },
+];
+---
+
+<Layout title="School Photography — Anna Shmitko">
+  <main class="min-h-screen px-3 py-10 md:px-8 md:py-16">
+    <section class="mx-auto max-w-6xl">
+      <header class="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-4">
+          <a
+            href="/photo"
+            class="text-sm text-gray-500 underline underline-offset-2 transition-colors hover:text-gray-900"
+          >
+            photography
+          </a>
+        </div>
+        <div class="md:col-span-7 md:col-start-6">
+          <h1 class="text-4xl font-bold text-black md:text-6xl">School photography</h1>
+          <p class="mt-5 max-w-xl text-base leading-7 text-gray-700">
+            A documentary series about school life: lessons, pauses, experiments, movement, and the quiet moments between them.
+          </p>
+        </div>
+      </header>
+
+      <div class="grid items-start gap-y-6 md:grid-cols-12 md:gap-x-6 md:gap-y-10">
+        {
+          gallery.map((item, index) => (
+            <figure class={item.class}>
+              <Image
+                src={item.image}
+                alt={item.alt}
+                widths={[360, 640, 900]}
+                sizes={item.class?.includes('col-span-8') || item.class?.includes('col-span-7') ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 40vw, 100vw'}
+                format="webp"
+                quality={72}
+                loading={index < 3 ? 'eager' : 'lazy'}
+                class="h-auto w-full"
+              />
+            </figure>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
