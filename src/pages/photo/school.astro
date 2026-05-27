@@ -50,48 +50,50 @@ const gallery = [
 
 <Layout title="School Photography — Anna Shmitko">
   <main class="min-h-screen px-4 py-5 md:px-8 md:py-6">
-    <header class="grid gap-4 text-[13px] font-semibold leading-tight text-black md:grid-cols-12">
-      <div class="md:col-span-2">
-        <a href="/photo" class="transition-colors hover:text-gray-500">Anna Shmitko</a>
-      </div>
-      <div class="md:col-span-3">
-        <h1>School photography</h1>
-      </div>
-      <p class="max-w-sm md:col-span-3 md:col-start-7">
-        Documentary photographs of school life, lessons, pauses, experiments, and movement.
-      </p>
-      <div class="hidden text-right md:col-span-2 md:col-start-11 md:block">
-        / photo archive
-      </div>
-    </header>
-
-    <section class="pt-36 md:pt-56">
-      <div class="grid items-start gap-y-10 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
-        <div class="hidden text-[13px] font-semibold leading-tight text-black md:col-span-1 md:block">
-          <a
-            href="/photo"
-            class="sticky top-6 block transition-colors hover:text-gray-500"
-          >
-            photo<br />index
-          </a>
+    <div class="container mx-auto max-w-7xl">
+      <header class="grid gap-4 text-sm font-semibold leading-tight text-black md:grid-cols-12 md:text-[13px]">
+        <div class="md:col-span-2">
+          <a href="/photo" class="transition-colors hover:text-gray-500">Anna Shmitko</a>
         </div>
-        {
-          gallery.map((item, index) => (
-            <figure class={item.class}>
-              <Image
-                src={item.image}
-                alt={item.alt}
-                widths={[360, 640, 900]}
-                sizes={item.class?.includes('col-span-8') || item.class?.includes('col-span-7') ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 40vw, 100vw'}
-                format="webp"
-                quality={72}
-                loading={index < 3 ? 'eager' : 'lazy'}
-                class="h-auto w-full"
-              />
-            </figure>
-          ))
-        }
-      </div>
-    </section>
+        <div class="md:col-span-3">
+          <h1>School photography</h1>
+        </div>
+        <p class="max-w-sm md:col-span-3 md:col-start-7">
+          Documentary photographs of school life, lessons, pauses, experiments, and movement.
+        </p>
+        <div class="hidden text-right md:col-span-2 md:col-start-11 md:block">
+          / photo archive
+        </div>
+      </header>
+
+      <section class="pt-36 md:pt-56">
+        <div class="grid items-start gap-y-10 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
+          <div class="hidden text-[13px] font-semibold leading-tight text-black md:col-span-1 md:block">
+            <a
+              href="/photo"
+              class="sticky top-6 block transition-colors hover:text-gray-500"
+            >
+              photo<br />index
+            </a>
+          </div>
+          {
+            gallery.map((item, index) => (
+              <figure class={item.class}>
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  widths={[360, 640, 900]}
+                  sizes={item.class?.includes('col-span-8') || item.class?.includes('col-span-7') ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 40vw, 100vw'}
+                  format="webp"
+                  quality={72}
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                  class="h-auto w-full"
+                />
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>
