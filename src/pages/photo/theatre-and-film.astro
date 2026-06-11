@@ -1,0 +1,658 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Layout from '../../layouts/Layout.astro';
+
+type ImageModule = {
+  default: ImageMetadata;
+};
+
+type GalleryItemInput = {
+  file: string | string[];
+  alt: string;
+  class?: string;
+};
+
+type GalleryItem = GalleryItemInput & {
+  image: ImageMetadata;
+  class: string;
+};
+
+const imageModules = import.meta.glob<ImageModule>('./theatre-and-film/*.{jpg,jpeg,JPG,JPEG,png,PNG}', {
+  eager: true,
+});
+
+const imageEntries = Object.entries(imageModules);
+
+const findImage = (file: string | string[]) => {
+  const parts = Array.isArray(file) ? file : [`/${file}`];
+  const match = imageEntries.find(([path]) => parts.every((part) => path.includes(part)));
+
+  if (!match) {
+    throw new Error(`Missing theatre and film image: ${parts.join(' ')}`);
+  }
+
+  return match[1].default;
+};
+
+const staggeredClasses = [
+  'md:col-span-5 md:col-start-1 md:mt-8',
+  'md:col-span-4 md:col-start-6',
+  'md:col-span-3 md:col-start-10 md:mt-14',
+  'md:col-span-5 md:col-start-2 md:mt-18',
+  'md:col-span-4 md:col-start-8 md:mt-10',
+  'md:col-span-8 md:col-start-1 md:mt-14',
+  'md:col-span-4 md:col-start-9 md:mt-10',
+  'md:col-span-4 md:col-start-1 md:mt-18',
+  'md:col-span-5 md:col-start-5 md:mt-8',
+  'md:col-span-5 md:col-start-1 md:mt-20',
+  'md:col-span-7 md:col-start-1 md:mt-12',
+  'md:col-span-4 md:col-start-9 md:mt-20',
+];
+
+const makeItems = (items: GalleryItemInput[]): GalleryItem[] =>
+  items.map((item, index) => ({
+    ...item,
+    image: findImage(item.file),
+    class: item.class ?? staggeredClasses[index % staggeredClasses.length],
+  }));
+
+const sections = [
+  {
+    title: 'Serebrennikov: stage works',
+    subtitle: 'Stage photographs around Kirill Serebrennikov projects at Platforma, Gogol Center, and the Moscow Art Theatre: Lermontov, Brecht, Lewis Carroll, Martin McDonagh, and contemporary Russian texts reframed through ensemble bodies, song, and hard theatrical light.',
+    items: makeItems([
+      {
+        file: 'A Hero of Our Time_serebrennikov_platforma.jpg',
+        alt: 'Stage performers in A Hero of Our Time at Platforma',
+      },
+      {
+        file: 'Die Dreigroschenoper_MHT_Serebrennikov.JPG',
+        alt: 'Performer under stage light in The Threepenny Opera',
+      },
+      {
+        file: 'hunting_on_snark_gogolcenter.JPG',
+        alt: 'Large ensemble staging from Hunting of the Snark at Gogol Center',
+      },
+      {
+        file: 'more dereviev_gogolcenter.jpg',
+        alt: 'Red-lit stage scene from Sea of Trees at Gogol Center',
+      },
+      {
+        file: 'more dereviev_gogolcenter_2.jpg',
+        alt: 'Performers gathered on stage in Sea of Trees at Gogol Center',
+      },
+      {
+        file: ['palachi_gogolcenter_serebrennikov', 'McDonagh.JPG'],
+        alt: 'Actor on a bare stage in Hangmen at Gogol Center',
+      },
+    ]),
+  },
+  {
+    title: 'Dead Souls',
+    subtitle: 'A sequence from Serebrennikov\'s Gogol Center staging of Nikolai Gogol\'s satirical novel about Chichikov and the trade in dead souls. The photographs hold the production as a procession of faces, bodies, uniforms, and social grotesque.',
+    items: makeItems([
+      {
+        file: 'dead_souls_gogocenter_serebrennikov_01.jpg',
+        alt: 'Actor portrait from Dead Souls at Gogol Center',
+      },
+      {
+        file: 'dead_souls_gogocenter_serebrennikov_02.jpg',
+        alt: 'Performers standing together in Dead Souls at Gogol Center',
+      },
+      {
+        file: 'dead_souls_gogocenter_serebrennikov_03.jpg',
+        alt: 'Stage figure against a dark backdrop in Dead Souls',
+      },
+      {
+        file: 'dead_souls_gogocenter_serebrennikov_04.jpg',
+        alt: 'Ensemble scene from Dead Souls at Gogol Center',
+      },
+      {
+        file: 'dead_souls_gogocenter_serebrennikov_05.jpg',
+        alt: 'Actor in costume during Dead Souls',
+      },
+      {
+        file: 'dead_souls_gogocenter_serebrennikov_06.jpg',
+        alt: 'Stage tableau from Dead Souls at Gogol Center',
+      },
+      {
+        file: 'dead_souls_serebreenikov_gogol_center.jpg',
+        alt: 'Wide stage photograph from Dead Souls at Gogol Center',
+      },
+    ]),
+  },
+  {
+    title: 'Barocco and Midsummer',
+    subtitle: 'Two Gogol Center worlds by Serebrennikov: the late production Barocco and Shakespeare\'s A Midsummer Night\'s Dream. The images move between bright choreographic lines, sharply lit bodies, and darker nocturnal tableaux.',
+    items: makeItems([
+      {
+        file: 'barocco_gogol_center_serebrennikov_01.jpg',
+        alt: 'Stage performer in Barocco at Gogol Center',
+      },
+      {
+        file: 'barocco_gogol_center_serebrennikov_02.jpg',
+        alt: 'Dramatic stage image from Barocco at Gogol Center',
+      },
+      {
+        file: 'barocco_gogol_center_serebrennikov_03.jpg',
+        alt: 'Ensemble scene from Barocco at Gogol Center',
+      },
+      {
+        file: 'barocco_gogol_center_serebrennikov_04.jpg',
+        alt: 'Performer caught in motion during Barocco',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_01.jpg',
+        alt: 'Stage scene from A Midsummer Night\'s Dream at Gogol Center',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_02.jpg',
+        alt: 'Ensemble photograph from A Midsummer Night\'s Dream',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_03.jpg',
+        alt: 'Square stage portrait from A Midsummer Night\'s Dream',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_04.jpg',
+        alt: 'Nocturnal stage tableau from A Midsummer Night\'s Dream',
+      },
+    ]),
+  },
+  {
+    title: 'Praktika Theatre',
+    subtitle: 'Praktika was a Moscow space for modern and experimental productions. These frames follow productions named in the archive: Oleg Glushkov\'s Hypnos, Police in YouTube, A39: Conductors, and Rain in Neukoelln, with attention to small stages, civic interiors, and direct audience proximity.',
+    items: makeItems([
+      {
+        file: 'hipnos_glushkov_praktika.JPG',
+        alt: 'Performer in Hypnos at Praktika Theatre',
+      },
+      {
+        file: 'police_in_youtube_praktika.JPG',
+        alt: 'Stage scene from Police in YouTube at Praktika Theatre',
+      },
+      {
+        file: 'praktika_a39_conductors.JPG',
+        alt: 'Production photograph from A39: Conductors at Praktika Theatre',
+      },
+      {
+        file: 'rain_in_neukoeln_praktika01.jpg',
+        alt: 'Actor on stage in Rain in Neukoelln at Praktika Theatre',
+      },
+      {
+        file: 'rain_in_neukoeln_praktika02.jpg',
+        alt: 'Two performers in Rain in Neukoelln at Praktika Theatre',
+      },
+      {
+        file: 'rain_in_neukoeln_praktika03.jpg',
+        alt: 'Stage detail from Rain in Neukoelln at Praktika Theatre',
+      },
+    ]),
+  },
+  {
+    title: 'David Bobée',
+    subtitle: 'Photographs from Metamorphoses and Fées, linked to David Bobée\'s physical, cross-disciplinary theatre language: video, light, dance, circus, music, and performers held in transformation.',
+    items: makeItems([
+      {
+        file: ['Metamorphoses_', '_01.jpg'],
+        alt: 'Performer on stage in Metamorphoses by David Bobée',
+      },
+      {
+        file: ['Metamorphoses_', '_02.jpg'],
+        alt: 'Ensemble image from Metamorphoses by David Bobée',
+      },
+      {
+        file: ['Metamorphoses_', '_03.jpg'],
+        alt: 'Stage tableau from Metamorphoses by David Bobée',
+      },
+      {
+        file: 'fei_david_bobe.JPG',
+        alt: 'Portrait-format stage image from Fées by David Bobée',
+      },
+    ]),
+  },
+  {
+    title: 'Berkovich',
+    subtitle: 'Work around Zhenya Berkovich\'s Gogol Center Russian Beauty and the later production Schitalka. The section keeps the scale intimate: performers close to the lens, children\'s-game rhythm, and young women caught between narrative and direct address.',
+    items: makeItems([
+      {
+        file: 'russian_beauty_gogolcenter_berkovich01.jpg',
+        alt: 'Stage scene from Russian Beauty at Gogol Center',
+      },
+      {
+        file: 'russian_beauty_gogolcenter_berkovich02.jpg',
+        alt: 'Two performers in Russian Beauty at Gogol Center',
+      },
+      {
+        file: 'schitalka_berkovich.jpg',
+        alt: 'Square portrait from Schitalka directed by Zhenya Berkovich',
+      },
+      {
+        file: 'schitalka_berkovich2.jpg',
+        alt: 'Portrait-format stage image from Schitalka directed by Zhenya Berkovich',
+      },
+    ]),
+  },
+  {
+    title: 'Film and video',
+    subtitle: 'Screen and video projects from the archive, from narrative-film stills to choreographic tests and music-video images. The group moves away from the theatre auditorium into rehearsal rooms, locations, poster frames, and motion studies.',
+    items: makeItems([
+      {
+        file: 'acid_gorchilin_01.jpg',
+        alt: 'Film still from Acid directed by Alexander Gorchilin',
+      },
+      {
+        file: 'acid_gorchilin_02.jpg',
+        alt: 'Portrait-format still from Acid directed by Alexander Gorchilin',
+      },
+      {
+        file: 'acid_gorchilin_03.jpg',
+        alt: 'Vertical film still from Acid directed by Alexander Gorchilin',
+      },
+      {
+        file: 'izmena-serebrennikov_poster.jpg',
+        alt: 'Poster image for Betrayal directed by Kirill Serebrennikov',
+      },
+      {
+        file: 'circle_popova_musicvideo.jpg',
+        alt: 'Two performers rehearsing with a hoop for a Popova music video',
+      },
+      {
+        file: '2019_11_tlv_003.JPG',
+        alt: 'Black-and-white location image from a Tel Aviv film or video project',
+      },
+      {
+        file: '5robocu.jpg',
+        alt: 'Black-and-white portrait of a performer standing on a stool',
+      },
+      {
+        file: 'bouth.jpg',
+        alt: 'Black-and-white motion study of two performers',
+      },
+    ]),
+  },
+];
+
+let lightboxIndex = 0;
+
+const gallerySections = await Promise.all(
+  sections.map(async (section) => ({
+    ...section,
+    items: await Promise.all(
+      section.items.map(async (item) => ({
+        ...item,
+        lightboxIndex: lightboxIndex++,
+        lightbox: await getImage({ src: item.image, width: 1800, format: 'webp', quality: 82 }),
+      })),
+    ),
+  })),
+);
+---
+
+<Layout title="Theatre and Film Photography - Anna Shmitko">
+  <main class="min-h-screen px-4 py-5 md:px-8 md:py-6">
+    <div class="container mx-auto max-w-7xl">
+      <header class="grid gap-4 text-sm font-semibold leading-tight text-black md:grid-cols-12 md:text-[13px]">
+        <div class="md:col-span-2">
+          <a href="/photo" class="transition-colors hover:text-gray-500">Anna Shmitko</a>
+        </div>
+        <div class="md:col-span-3">
+          <h1>Theatre and film photography</h1>
+        </div>
+        <p class="max-w-sm md:col-span-3 md:col-start-7">
+          Stage, rehearsal, film set, and music video photography from theatre works, performances, and screen projects.
+        </p>
+        <div class="hidden text-right md:col-span-2 md:col-start-11 md:block">
+          / photo archive
+        </div>
+      </header>
+
+      <portfolio-gallery>
+        {
+          gallerySections.map((section, sectionIndex) => (
+            <section class={sectionIndex === 0 ? 'pt-28 md:pt-32' : 'pt-24 md:pt-28'}>
+              <div class="grid gap-4 text-sm font-semibold leading-tight text-black md:grid-cols-12 md:text-[13px]">
+                <div class="md:col-span-2">{String(sectionIndex + 1).padStart(2, '0')}</div>
+                <h2 class="md:col-span-3">{section.title}</h2>
+                <p class="max-w-sm md:col-span-3 md:col-start-7">{section.subtitle}</p>
+              </div>
+
+              <div class="mt-12 grid items-start gap-y-9 md:mt-10 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
+                {section.items.map((item) => (
+                  <figure class={item.class}>
+                    <button
+                      type="button"
+                      data-lightbox-index={item.lightboxIndex}
+                      data-lightbox-src={item.lightbox.src}
+                      data-lightbox-alt={item.alt}
+                      aria-label={`Open image ${item.lightboxIndex + 1}`}
+                      class="block w-full cursor-zoom-in text-left"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        widths={[360, 640, 900]}
+                        sizes={item.class?.includes('col-span-8') || item.class?.includes('col-span-7') ? '(min-width: 768px) 60vw, 100vw' : '(min-width: 768px) 40vw, 100vw'}
+                        format="webp"
+                        quality={72}
+                        loading={item.lightboxIndex < 3 ? 'eager' : 'lazy'}
+                        class="h-auto w-full"
+                      />
+                    </button>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+
+        <div
+          data-lightbox
+          class="fixed inset-0 z-50 hidden overflow-hidden overscroll-contain bg-black px-4 py-4 text-white md:px-8 md:py-6"
+          role="dialog"
+          aria-modal="true"
+          aria-hidden="true"
+        >
+          <div class="flex h-full min-h-0 flex-col">
+            <div class="relative z-20 grid grid-cols-[1fr_auto] items-center gap-3 text-sm font-semibold leading-tight text-white/90 md:grid-cols-12 md:text-[13px]">
+              <div class="hidden md:col-span-2 md:block">Anna Shmitko</div>
+              <div class="hidden md:col-span-3 md:block">Theatre and film photography</div>
+              <div class="md:col-span-2 md:col-start-7" data-lightbox-counter></div>
+              <button
+                type="button"
+                data-lightbox-close
+                class="min-h-11 min-w-16 border border-white/30 px-4 text-center transition-colors hover:border-white hover:text-white active:bg-white active:text-black md:col-span-2 md:col-start-11 md:justify-self-end"
+              >
+                close
+              </button>
+            </div>
+
+            <div data-lightbox-stage class="relative -mx-4 flex min-h-0 flex-1 touch-none items-center justify-center px-14 py-4 md:-mx-8 md:px-24 md:py-8">
+              <button
+                type="button"
+                data-lightbox-prev
+                class="absolute inset-y-0 left-0 z-10 flex w-14 items-center justify-center bg-black/20 text-4xl leading-none text-white/85 transition-colors hover:text-white active:bg-white active:text-black md:w-24 md:text-6xl"
+                aria-label="Previous image"
+              >
+                &lt;-
+              </button>
+              <img
+                data-lightbox-image
+                alt=""
+                draggable="false"
+                class="max-h-full max-w-full select-none object-contain"
+              />
+              <button
+                type="button"
+                data-lightbox-next
+                class="absolute inset-y-0 right-0 z-10 flex w-14 items-center justify-center bg-black/20 text-4xl leading-none text-white/85 transition-colors hover:text-white active:bg-white active:text-black md:w-24 md:text-6xl"
+                aria-label="Next image"
+              >
+                -&gt;
+              </button>
+            </div>
+
+            <div class="pb-1 text-center text-xs font-semibold text-white/45 md:hidden">swipe or tap arrows</div>
+          </div>
+        </div>
+      </portfolio-gallery>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  class PortfolioGallery extends HTMLElement {
+    private triggers: HTMLButtonElement[] = [];
+    private lightbox: HTMLElement | null = null;
+    private stage: HTMLElement | null = null;
+    private image: HTMLImageElement | null = null;
+    private counter: HTMLElement | null = null;
+    private closeButton: HTMLButtonElement | null = null;
+    private prevButton: HTMLButtonElement | null = null;
+    private nextButton: HTMLButtonElement | null = null;
+    private index = 0;
+    private isOpen = false;
+    private previousBodyOverflow = '';
+    private previousBodyPosition = '';
+    private previousBodyTop = '';
+    private previousBodyWidth = '';
+    private previousDocumentOverflow = '';
+    private previousThemeColor: string | null = null;
+    private themeColorMeta: HTMLMetaElement | null = null;
+    private themeColorCreated = false;
+    private scrollY = 0;
+    private touchStartX = 0;
+    private touchStartY = 0;
+    private touchStartTime = 0;
+    private boundKeydown = this.handleKeydown.bind(this);
+    private boundTouchStart = this.handleTouchStart.bind(this);
+    private boundTouchEnd = this.handleTouchEnd.bind(this);
+
+    connectedCallback() {
+      this.triggers = Array.from(this.querySelectorAll('[data-lightbox-index]'));
+      this.lightbox = this.querySelector('[data-lightbox]');
+      this.stage = this.querySelector('[data-lightbox-stage]');
+      this.image = this.querySelector('[data-lightbox-image]');
+      this.counter = this.querySelector('[data-lightbox-counter]');
+      this.closeButton = this.querySelector('[data-lightbox-close]');
+      this.prevButton = this.querySelector('[data-lightbox-prev]');
+      this.nextButton = this.querySelector('[data-lightbox-next]');
+
+      this.triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          this.open(Number(trigger.dataset.lightboxIndex || 0));
+        });
+      });
+
+      this.closeButton?.addEventListener('click', () => this.close());
+      this.prevButton?.addEventListener('click', () => this.showPrevious());
+      this.nextButton?.addEventListener('click', () => this.showNext());
+      this.stage?.addEventListener('touchstart', this.boundTouchStart, { passive: true });
+      this.stage?.addEventListener('touchend', this.boundTouchEnd, { passive: true });
+    }
+
+    disconnectedCallback() {
+      document.removeEventListener('keydown', this.boundKeydown);
+
+      if (this.isOpen) {
+        this.unlockPageScroll();
+        this.restoreThemeColor();
+      }
+
+      this.stage?.removeEventListener('touchstart', this.boundTouchStart);
+      this.stage?.removeEventListener('touchend', this.boundTouchEnd);
+    }
+
+    private open(index: number) {
+      this.index = index;
+      this.render();
+
+      if (this.isOpen) {
+        return;
+      }
+
+      this.isOpen = true;
+      this.lightbox?.classList.remove('hidden');
+      this.lightbox?.setAttribute('aria-hidden', 'false');
+      this.lockPageScroll();
+      this.setThemeColor('#000000');
+      document.addEventListener('keydown', this.boundKeydown);
+      this.closeButton?.focus();
+    }
+
+    private close() {
+      if (!this.isOpen) {
+        return;
+      }
+
+      this.isOpen = false;
+      this.lightbox?.classList.add('hidden');
+      this.lightbox?.setAttribute('aria-hidden', 'true');
+      this.unlockPageScroll();
+      this.restoreThemeColor();
+      document.removeEventListener('keydown', this.boundKeydown);
+      this.triggers[this.index]?.focus();
+    }
+
+    private showPrevious() {
+      this.index = (this.index - 1 + this.triggers.length) % this.triggers.length;
+      this.render();
+    }
+
+    private showNext() {
+      this.index = (this.index + 1) % this.triggers.length;
+      this.render();
+    }
+
+    private render() {
+      const trigger = this.triggers[this.index];
+
+      if (!trigger || !this.image) {
+        return;
+      }
+
+      this.image.src = trigger.dataset.lightboxSrc || '';
+      this.image.alt = trigger.dataset.lightboxAlt || '';
+
+      if (this.counter) {
+        this.counter.textContent = `${String(this.index + 1).padStart(2, '0')} / ${String(this.triggers.length).padStart(2, '0')}`;
+      }
+    }
+
+    private handleKeydown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        this.close();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        this.showPrevious();
+      }
+
+      if (event.key === 'ArrowRight') {
+        this.showNext();
+      }
+    }
+
+    private handleTouchStart(event: TouchEvent) {
+      const touch = event.changedTouches[0];
+
+      if (!touch) {
+        return;
+      }
+
+      this.touchStartX = touch.clientX;
+      this.touchStartY = touch.clientY;
+      this.touchStartTime = Date.now();
+    }
+
+    private handleTouchEnd(event: TouchEvent) {
+      const touch = event.changedTouches[0];
+
+      if (!touch) {
+        return;
+      }
+
+      const deltaX = touch.clientX - this.touchStartX;
+      const deltaY = touch.clientY - this.touchStartY;
+      const isHorizontalSwipe = Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+      const isQuickSwipe = Date.now() - this.touchStartTime < 900;
+
+      if (!isHorizontalSwipe || !isQuickSwipe) {
+        return;
+      }
+
+      if (deltaX > 0) {
+        this.showPrevious();
+        return;
+      }
+
+      this.showNext();
+    }
+
+    private lockPageScroll() {
+      this.scrollY = window.scrollY;
+      this.previousBodyOverflow = document.body.style.overflow;
+      this.previousBodyPosition = document.body.style.position;
+      this.previousBodyTop = document.body.style.top;
+      this.previousBodyWidth = document.body.style.width;
+      this.previousDocumentOverflow = document.documentElement.style.overflow;
+
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${this.scrollY}px`;
+      document.body.style.width = '100%';
+    }
+
+    private unlockPageScroll() {
+      document.body.style.overflow = this.previousBodyOverflow;
+      document.body.style.position = this.previousBodyPosition;
+      document.body.style.top = this.previousBodyTop;
+      document.body.style.width = this.previousBodyWidth;
+      document.documentElement.style.overflow = this.previousDocumentOverflow;
+
+      window.scrollTo(0, this.scrollY);
+    }
+
+    private setThemeColor(color: string) {
+      let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+
+      this.themeColorCreated = !meta;
+
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'theme-color';
+        document.head.append(meta);
+      }
+
+      this.themeColorMeta = meta;
+      this.previousThemeColor = meta.getAttribute('content');
+      meta.setAttribute('content', color);
+    }
+
+    private restoreThemeColor() {
+      if (!this.themeColorMeta) {
+        return;
+      }
+
+      if (this.themeColorCreated) {
+        this.themeColorMeta.remove();
+      } else if (this.previousThemeColor) {
+        this.themeColorMeta.setAttribute('content', this.previousThemeColor);
+      } else {
+        this.themeColorMeta.removeAttribute('content');
+      }
+
+      this.themeColorMeta = null;
+      this.previousThemeColor = null;
+      this.themeColorCreated = false;
+    }
+  }
+
+  if (!customElements.get('portfolio-gallery')) {
+    customElements.define('portfolio-gallery', PortfolioGallery);
+  }
+</script>
+
+<style>
+  [data-lightbox] {
+    color-scheme: dark;
+  }
+
+  @supports (padding: max(0px)) {
+    [data-lightbox] {
+      padding-top: max(1rem, env(safe-area-inset-top));
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+  }
+
+  @media (min-width: 768px) {
+    @supports (padding: max(0px)) {
+      [data-lightbox] {
+        padding-top: max(1.5rem, env(safe-area-inset-top));
+        padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+      }
+    }
+  }
+</style>
