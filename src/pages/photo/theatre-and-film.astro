@@ -59,6 +59,52 @@ const makeItems = (items: GalleryItemInput[]): GalleryItem[] =>
 
 const sections = [
   {
+    title: 'Barocco and Midsummer',
+    subtitle: 'Two Gogol Center worlds by Serebrennikov: the late production Barocco and Shakespeare\'s A Midsummer Night\'s Dream. The images move between bright choreographic lines, sharply lit bodies, and darker nocturnal tableaux.',
+    items: makeItems([
+      {
+        file: 'barocco_gogol_center_serebrennikov_01.jpg',
+        alt: 'Stage performer in Barocco at Gogol Center',
+        class: 'md:col-span-5 md:col-start-1 md:mt-8',
+      },
+      {
+        file: 'barocco_gogol_center_serebrennikov_02.jpg',
+        alt: 'Dramatic stage image from Barocco at Gogol Center',
+        class: 'md:col-span-4 md:col-start-6',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_04.jpg',
+        alt: 'Nocturnal stage tableau from A Midsummer Night\'s Dream',
+        class: 'md:col-span-3 md:col-start-10 md:mt-10',
+      },
+      {
+        file: 'barocco_gogol_center_serebrennikov_03.jpg',
+        alt: 'Ensemble scene from Barocco at Gogol Center',
+        class: 'md:col-span-5 md:col-start-2 md:mt-14',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_01.jpg',
+        alt: 'Stage scene from A Midsummer Night\'s Dream at Gogol Center',
+        class: 'md:col-span-4 md:col-start-8 md:mt-8',
+      },
+      {
+        file: 'barocco_gogol_center_serebrennikov_04.jpg',
+        alt: 'Performer caught in motion during Barocco',
+        class: 'md:col-span-4 md:col-start-1 md:mt-14',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_02.jpg',
+        alt: 'Ensemble photograph from A Midsummer Night\'s Dream',
+        class: 'md:col-span-5 md:col-start-5 md:mt-8',
+      },
+      {
+        file: 'midsummernight_gogocenter_serebrennikov_03.jpg',
+        alt: 'Square stage portrait from A Midsummer Night\'s Dream',
+        class: 'md:col-span-3 md:col-start-10 md:mt-16',
+      },
+    ]),
+  },
+  {
     title: 'Serebrennikov: stage works',
     subtitle: 'Stage photographs around Kirill Serebrennikov projects at Platforma, Gogol Center, and the Moscow Art Theatre: Lermontov, Brecht, Lewis Carroll, Martin McDonagh, and contemporary Russian texts reframed through ensemble bodies, song, and hard theatrical light.',
     items: makeItems([
@@ -119,44 +165,6 @@ const sections = [
       {
         file: 'dead_souls_serebreenikov_gogol_center.jpg',
         alt: 'Wide stage photograph from Dead Souls at Gogol Center',
-      },
-    ]),
-  },
-  {
-    title: 'Barocco and Midsummer',
-    subtitle: 'Two Gogol Center worlds by Serebrennikov: the late production Barocco and Shakespeare\'s A Midsummer Night\'s Dream. The images move between bright choreographic lines, sharply lit bodies, and darker nocturnal tableaux.',
-    items: makeItems([
-      {
-        file: 'barocco_gogol_center_serebrennikov_01.jpg',
-        alt: 'Stage performer in Barocco at Gogol Center',
-      },
-      {
-        file: 'barocco_gogol_center_serebrennikov_02.jpg',
-        alt: 'Dramatic stage image from Barocco at Gogol Center',
-      },
-      {
-        file: 'barocco_gogol_center_serebrennikov_03.jpg',
-        alt: 'Ensemble scene from Barocco at Gogol Center',
-      },
-      {
-        file: 'barocco_gogol_center_serebrennikov_04.jpg',
-        alt: 'Performer caught in motion during Barocco',
-      },
-      {
-        file: 'midsummernight_gogocenter_serebrennikov_01.jpg',
-        alt: 'Stage scene from A Midsummer Night\'s Dream at Gogol Center',
-      },
-      {
-        file: 'midsummernight_gogocenter_serebrennikov_02.jpg',
-        alt: 'Ensemble photograph from A Midsummer Night\'s Dream',
-      },
-      {
-        file: 'midsummernight_gogocenter_serebrennikov_03.jpg',
-        alt: 'Square stage portrait from A Midsummer Night\'s Dream',
-      },
-      {
-        file: 'midsummernight_gogocenter_serebrennikov_04.jpg',
-        alt: 'Nocturnal stage tableau from A Midsummer Night\'s Dream',
       },
     ]),
   },
@@ -261,14 +269,17 @@ const sections = [
       {
         file: '2019_11_tlv_003.JPG',
         alt: 'Black-and-white location image from a Tel Aviv film or video project',
-      },
-      {
-        file: '5robocu.jpg',
-        alt: 'Black-and-white portrait of a performer standing on a stool',
+        class: 'md:col-span-8 md:col-start-1 md:mt-14',
       },
       {
         file: 'bouth.jpg',
         alt: 'Black-and-white motion study of two performers',
+        class: 'md:col-span-5 md:col-start-2 md:mt-12',
+      },
+      {
+        file: '5robocu.jpg',
+        alt: 'Black-and-white portrait of a performer standing on a stool',
+        class: 'md:col-span-3 md:col-start-8 md:mt-12',
       },
     ]),
   },
